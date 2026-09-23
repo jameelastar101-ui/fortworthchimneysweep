@@ -1,0 +1,38 @@
+---
+interface Props {
+  heading?: string;
+  intro?: string;
+  formName?: string;
+}
+const { heading = 'Request a Quote', intro, formName = 'lead' } = Astro.props;
+const field =
+  'w-full rounded-btn border-2 border-line bg-white px-4 py-3 text-base focus:border-brand focus:outline-none';
+---
+
+<section id="contact" class="bg-charcoal py-14 text-white">
+  <div class="container-page grid gap-8 md:grid-cols-2 md:items-center">
+    <div>
+      <h2 class="section-title">{heading}</h2>
+      <span class="rule"></span>
+      {intro && <p class="text-lg text-white/80">{intro}</p>}
+    </div>
+    <!-- Netlify Forms: detected at build time from data-netlify + hidden form-name -->
+    <form name={formName} method="POST" data-netlify="true" netlify-honeypot="bot-field" class="grid gap-4 text-ink">
+      <input type="hidden" name="form-name" value={formName} />
+      <p class="hidden"><label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+      <div>
+        <label for={`${formName}-name`} class="mb-1 block text-sm font-bold uppercase tracking-wide text-white">Name</label>
+        <input id={`${formName}-name`} name="name" type="text" required autocomplete="name" class={field} />
+      </div>
+      <div>
+        <label for={`${formName}-email`} class="mb-1 block text-sm font-bold uppercase tracking-wide text-white">Email</label>
+        <input id={`${formName}-email`} name="email" type="email" required autocomplete="email" class={field} />
+      </div>
+      <div>
+        <label for={`${formName}-message`} class="mb-1 block text-sm font-bold uppercase tracking-wide text-white">Message</label>
+        <textarea id={`${formName}-message`} name="message" rows="4" required class={field}></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send Request</button>
+    </form>
+  </div>
+</section>

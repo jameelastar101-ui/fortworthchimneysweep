@@ -1,0 +1,68 @@
+---
+// DEV-ONLY component preview at /dev/components/ — emits no page in production builds,
+// so the lorem content below can never ship.
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import TrustBadges from '../../components/TrustBadges.astro';
+import ServiceGrid from '../../components/ServiceGrid.astro';
+import ProblemsList from '../../components/ProblemsList.astro';
+import WhyChooseUs from '../../components/WhyChooseUs.astro';
+import ProcessSteps from '../../components/ProcessSteps.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import ServiceAreas from '../../components/ServiceAreas.astro';
+import FAQ from '../../components/FAQ.astro';
+import LeadForm from '../../components/LeadForm.astro';
+
+export function getStaticPaths() {
+  return import.meta.env.DEV ? [{ params: { slug: 'components' } }] : [];
+}
+
+const lorem =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+const icons = ['chimney', 'clipboard', 'shield', 'flame', 'clock', 'dollar', 'check', 'pin', 'star'];
+const services = icons.map((icon, i) => ({
+  title: `Service Title ${i + 1}`,
+  description: lorem,
+  href: '#',
+  icon,
+}));
+const reviews = [1, 2, 3, 4].map((n) => ({
+  name: `Customer Name ${n}`,
+  neighborhood: 'Neighborhood Name',
+  quote: lorem,
+}));
+const faqs = [1, 2, 3].map((n) => ({ question: `Placeholder question ${n}?`, answer: lorem }));
+---
+
+<BaseLayout title="Component preview" description="Dev-only component preview." noindex>
+  <Hero headline="Placeholder Hero Headline" subhead={lorem} />
+  <TrustBadges />
+  <ServiceGrid heading="Service Grid Heading" intro={lorem} services={services} />
+  <ProblemsList
+    heading="Problems List Heading"
+    intro={lorem}
+    problems={[1, 2, 3, 4].map((n) => ({ title: `Problem title ${n}`, body: lorem }))}
+  />
+  <WhyChooseUs
+    heading="Why Choose Us Heading"
+    features={[
+      { icon: 'clock', title: 'Feature One', description: lorem },
+      { icon: 'dollar', title: 'Feature Two', description: lorem },
+      { icon: 'shield', title: 'Feature Three', description: lorem },
+      { icon: 'clipboard', title: 'Feature Four', description: lorem },
+    ]}
+  />
+  <ProcessSteps
+    heading="Process Steps Heading"
+    steps={[1, 2, 3, 4].map((n) => ({ title: `Step ${n}`, description: lorem }))}
+  />
+  <Testimonials reviews={reviews} />
+  <ServiceAreas
+    heading="Service Areas Heading"
+    intro={lorem}
+    neighborhoods={['Neighborhood A', 'Neighborhood B', 'Neighborhood C', 'Neighborhood D', 'Neighborhood E', 'Neighborhood F']}
+    zips={['00000', '00001', '00002', '00003']}
+  />
+  <FAQ items={faqs} />
+  <LeadForm intro={lorem} />
+</BaseLayout>

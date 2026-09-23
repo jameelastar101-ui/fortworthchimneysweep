@@ -1,0 +1,24 @@
+---
+import Icon from './Icon.astro';
+
+// Named in the brief; keep in sync with credentials the business actually holds.
+const badges = [
+  { icon: 'shield', label: 'CSIA Certified' },
+  { icon: 'check', label: 'Licensed & Insured' },
+  { icon: 'star', label: 'BBB Accredited' },
+  { icon: 'flame', label: 'NCSG Member' },
+];
+---
+
+<section class="border-y border-line bg-cream" aria-label="Credentials">
+  <ul class="container-page grid grid-cols-2 gap-x-4 gap-y-5 py-6 md:grid-cols-4">
+    {
+      badges.map((b) => (
+        <li class="flex items-center gap-3">
+          <Icon name={b.icon} class="size-9 shrink-0 text-ink" />
+          <span class="text-sm font-extrabold uppercase leading-tight tracking-wide">{b.label}</span>
+        </li>
+      ))
+    }
+  </ul>
+</section>

@@ -1,0 +1,33 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  heading: string;
+  intro?: string;
+  problems: { title: string; body: string }[];
+}
+const { heading, intro, problems } = Astro.props;
+---
+
+<section class="section bg-cream">
+  <div class="container-page grid gap-10 md:grid-cols-[1fr_1.6fr]">
+    <div>
+      <h2 class="section-title">{heading}</h2>
+      <span class="rule"></span>
+      {intro && <p class="text-lg text-muted">{intro}</p>}
+    </div>
+    <div class="grid gap-3">
+      {
+        problems.map((p) => (
+          <details class="group rounded-card border-2 border-line bg-white open:border-brand">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-4 text-lg font-extrabold [&::-webkit-details-marker]:hidden">
+              {p.title}
+              <Icon name="plus" class="size-6 shrink-0 text-brand transition group-open:rotate-45" />
+            </summary>
+            <p class="px-4 pb-4 text-muted">{p.body}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,68 @@
+---
+import Icon from './Icon.astro';
+import defaultReviews from '../data/reviews.json';
+
+export interface Review {
+  name: string;
+  neighborhood: string;
+  quote: string;
+}
+interface Props {
+  heading?: string;
+  reviews?: Review[];
+}
+// Data-driven: edit src/data/reviews.json. Renders nothing while it is empty.
+const { heading = 'What Our Customers Say', reviews = defaultReviews } = Astro.props;
+---
+
+{
+  reviews.length > 0 && (
+    <section class="section bg-cream" data-carousel>
+      <div class="container-page">
+        <div class="flex items-end justify-between gap-4">
+          <div>
+            <h2 class="section-title">{heading}</h2>
+            <span class="rule mb-0" />
+          </div>
+          <div class="flex gap-2">
+            <button type="button" data-prev class="btn btn-dark !p-3" aria-label="Previous review">
+              <Icon name="arrow" class="size-5 rotate-180" />
+            </button>
+            <button type="button" data-next class="btn btn-dark !p-3" aria-label="Next review">
+              <Icon name="arrow" class="size-5" />
+            </button>
+          </div>
+        </div>
+        <ul
+          data-track
+          class="mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 [scrollbar-width:none]"
+          tabindex="0"
+          aria-label="Customer reviews"
+        >
+          {reviews.map((r) => (
+            <li class="w-[85%] shrink-0 snap-start rounded-card border-t-4 border-brand bg-white p-6 shadow-sm md:w-[calc(33.333%-0.85rem)]">
+              <div class="flex gap-0.5" aria-hidden="true">
+                {[0, 1, 2, 3, 4].map(() => (
+                  <Icon name="star" class="size-5" />
+                ))}
+              </div>
+              <blockquote class="mt-4 text-base leading-relaxed">“{r.quote}”</blockquote>
+              <p class="mt-5 font-extrabold uppercase tracking-wide">{r.name}</p>
+              <p class="text-sm text-muted">{r.neighborhood}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )
+}
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-carousel]').forEach((root) => {
+    const track = root.querySelector<HTMLElement>('[data-track]');
+    if (!track) return;
+    const step = () => (track.firstElementChild as HTMLElement).offsetWidth + 20;
+    root.querySelector('[data-prev]')?.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+    root.querySelector('[data-next]')?.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+  });
+</script>

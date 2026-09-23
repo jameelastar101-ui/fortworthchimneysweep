@@ -1,0 +1,43 @@
+---
+import Icon from './Icon.astro';
+
+export interface ServiceCard {
+  title: string;
+  description: string;
+  href: string;
+  icon?: string;
+}
+interface Props {
+  heading: string;
+  intro?: string;
+  services: ServiceCard[];
+}
+const { heading, intro, services } = Astro.props;
+---
+
+<section class="section bg-white">
+  <div class="container-page">
+    <h2 class="section-title">{heading}</h2>
+    <span class="rule"></span>
+    {intro && <p class="max-w-2xl text-lg text-muted">{intro}</p>}
+    <ul class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        services.map((s) => (
+          <li>
+            <a
+              href={s.href}
+              class="group flex h-full flex-col rounded-card border-2 border-line bg-white p-6 transition hover:-translate-y-1 hover:border-brand hover:shadow-lg"
+            >
+              <Icon name={s.icon ?? 'chimney'} class="size-12 text-ink" />
+              <h3 class="mt-4 text-2xl">{s.title}</h3>
+              <p class="mt-2 flex-1 text-muted">{s.description}</p>
+              <span class="mt-4 inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-wide text-brand">
+                Learn more <Icon name="arrow" class="size-4 transition group-hover:translate-x-1" />
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

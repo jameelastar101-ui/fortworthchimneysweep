@@ -1,0 +1,36 @@
+---
+import Icon from './Icon.astro';
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+interface Props {
+  heading?: string;
+  // Same array should feed FAQSchema.astro so schema always matches the visible copy.
+  items: FaqItem[];
+}
+const { heading = 'Frequently Asked Questions', items } = Astro.props;
+---
+
+{
+  items.length > 0 && (
+    <section class="section bg-white">
+      <div class="container-page max-w-3xl">
+        <h2 class="section-title">{heading}</h2>
+        <span class="rule" />
+        <div class="grid gap-3">
+          {items.map((f) => (
+            <details class="group rounded-card border-2 border-line open:border-brand">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-4 text-lg font-extrabold [&::-webkit-details-marker]:hidden">
+                {f.question}
+                <Icon name="plus" class="size-6 shrink-0 text-brand transition group-open:rotate-45" />
+              </summary>
+              <p class="px-4 pb-4 text-muted">{f.answer}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

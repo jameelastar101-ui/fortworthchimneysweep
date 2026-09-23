@@ -1,0 +1,130 @@
+@import '@fontsource/anton';
+@import '@fontsource-variable/inter';
+@import 'tailwindcss';
+
+/*
+ * Design tokens — "Rugged Tradesman" (see astro-migration-brief.md).
+ * Change values here; components reference the generated utilities
+ * (bg-brand, text-ink, bg-cream, bg-charcoal, font-display, ...) — never raw hex.
+ */
+@theme {
+  --color-brand: #d72828; /* sampled from the logo */
+  --color-brand-dark: #b01f1f; /* hover / pressed */
+  --color-ink: #111111;
+  --color-paper: #ffffff;
+  --color-cream: #f7f5f2;
+  --color-charcoal: #1c1c1e;
+  --color-muted: #55534f;
+  --color-line: #e2dfda;
+
+  --font-display: 'Anton', 'Archivo Black', Impact, sans-serif;
+  --font-body: 'Inter Variable', 'Inter', system-ui, sans-serif;
+
+  --radius-btn: 2px;
+  --radius-card: 4px;
+
+  --container-page: 72rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-paper);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    line-height: 1.05;
+    font-weight: 400;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: var(--container-page);
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  .section {
+    padding-block: 4rem;
+  }
+  @media (min-width: 768px) {
+    .section {
+      padding-block: 5.5rem;
+    }
+  }
+  .section-title {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+  }
+  /* short red bar under/above section headings */
+  .rule {
+    display: block;
+    width: 3.5rem;
+    height: 0.3rem;
+    background: var(--color-brand);
+    margin-block: 1rem 1.5rem;
+  }
+  .eyebrow {
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-brand);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.5rem;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-radius: var(--radius-btn);
+    border: 2px solid transparent;
+    transition:
+      background-color 0.15s,
+      color 0.15s,
+      border-color 0.15s;
+    cursor: pointer;
+    text-align: center;
+  }
+  .btn-primary {
+    background: var(--color-brand);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background: var(--color-brand-dark);
+  }
+  .btn-dark {
+    background: var(--color-ink);
+    color: #fff;
+  }
+  .btn-dark:hover {
+    background: var(--color-charcoal);
+  }
+  .btn-outline {
+    border-color: #fff;
+    color: #fff;
+  }
+  .btn-outline:hover {
+    background: #fff;
+    color: var(--color-ink);
+  }
+}

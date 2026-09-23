@@ -1,0 +1,86 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.webp';
+import Icon from './Icon.astro';
+import { site, mainNav } from '../data/site';
+---
+
+<header class="sticky top-0 z-50 border-b border-line bg-white">
+  <div class="container-page flex flex-wrap items-center justify-between gap-x-4 gap-y-1 py-2.5 md:flex-nowrap">
+    <a href="/" class="shrink-0" aria-label={`${site.name} — home`}>
+      <Image src={logo} alt={`${site.name} logo`} class="h-12 w-auto md:h-14" loading="eager" />
+    </a>
+
+    <nav id="site-nav" class="hidden w-full md:static md:block md:w-auto" aria-label="Main">
+      <ul class="flex flex-col gap-1 md:flex-row md:items-center md:gap-1">
+        {
+          mainNav.map((item) =>
+            item.children ? (
+              <li class="group relative">
+                <a
+                  href={item.href}
+                  class="flex items-center gap-1 px-3 py-2 text-sm font-extrabold uppercase tracking-wide hover:text-brand"
+                >
+                  {item.label}
+                  <Icon name="chevron" class="size-4 max-md:hidden" />
+                </a>
+                <ul class="ml-3 border-l-4 border-brand md:invisible md:absolute md:left-0 md:top-full md:ml-0 md:min-w-72 md:border-l-0 md:border-t-4 md:bg-white md:opacity-0 md:shadow-xl md:transition md:group-focus-within:visible md:group-focus-within:opacity-100 md:group-hover:visible md:group-hover:opacity-100">
+                  {item.children.map((c) => (
+                    <li>
+                      <a href={c.href} class="block px-4 py-2 text-sm font-semibold hover:bg-cream hover:text-brand">
+                        {c.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ) : (
+              <li>
+                <a href={item.href} class="block px-3 py-2 text-sm font-extrabold uppercase tracking-wide hover:text-brand">
+                  {item.label}
+                </a>
+              </li>
+            ),
+          )
+        }
+      </ul>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a href={site.phoneHref} class="btn btn-primary !px-4 !py-2.5 text-sm md:text-base">
+        <Icon name="phone" class="size-4 md:size-5" />
+        <span class="max-sm:sr-only">{site.phone}</span>
+        <span class="sm:hidden" aria-hidden="true">Call</span>
+      </a>
+      <button
+        type="button"
+        id="nav-toggle"
+        class="p-2 md:hidden"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        aria-label="Toggle menu"
+      >
+        <Icon name="menu" class="size-7" />
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  /* mobile: opened menu drops below the header bar */
+  #site-nav.open {
+    display: block;
+    order: 3;
+    padding-bottom: 0.75rem;
+  }
+</style>
+
+<script>
+  const btn = document.getElementById('nav-toggle');
+  const nav = document.getElementById('site-nav');
+  btn?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('open') ?? false;
+    nav?.classList.toggle('hidden', !open);
+    btn.setAttribute('aria-expanded', String(open));
+  });
+</script>

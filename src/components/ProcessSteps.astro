@@ -1,0 +1,27 @@
+---
+interface Props {
+  heading: string;
+  steps: { title: string; description: string }[];
+}
+const { heading, steps } = Astro.props;
+---
+
+<section class="section bg-charcoal text-white">
+  <div class="container-page">
+    <h2 class="section-title">{heading}</h2>
+    <span class="rule"></span>
+    <ol class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        steps.map((s, i) => (
+          <li class="relative">
+            <span class="font-display text-7xl leading-none text-brand" aria-hidden="true">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <h3 class="mt-2 text-2xl">{s.title}</h3>
+            <p class="mt-2 text-white/75">{s.description}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

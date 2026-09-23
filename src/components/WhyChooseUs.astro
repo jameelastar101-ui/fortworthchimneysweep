@@ -1,0 +1,28 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  heading: string;
+  // Four features: e.g. Fast Response / Transparent Pricing / Certified Techs / Written Reports
+  features: { icon?: string; title: string; description: string }[];
+}
+const { heading, features } = Astro.props;
+---
+
+<section class="section bg-white">
+  <div class="container-page">
+    <h2 class="section-title text-center">{heading}</h2>
+    <span class="rule mx-auto"></span>
+    <ul class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        features.map((f) => (
+          <li class="border-t-4 border-brand pt-5">
+            <Icon name={f.icon ?? 'check'} class="size-11 text-ink" />
+            <h3 class="mt-4 text-2xl">{f.title}</h3>
+            <p class="mt-2 text-muted">{f.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

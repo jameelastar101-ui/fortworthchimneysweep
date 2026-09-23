@@ -1,10 +1,36 @@
 ---
-// Homepage is built in the next step (see "Content delivery workflow" in the brief).
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustBadges from '../components/TrustBadges.astro';
+import ServiceGrid from '../components/ServiceGrid.astro';
+import ProblemsList from '../components/ProblemsList.astro';
+import WhyChooseUs from '../components/WhyChooseUs.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
+import Testimonials from '../components/Testimonials.astro';
+import ServiceAreas from '../components/ServiceAreas.astro';
+import FAQ from '../components/FAQ.astro';
+import LeadForm from '../components/LeadForm.astro';
+import { home } from '../data/home';
+
+const services = home.services.cards.map((c, i) => ({ ...c, icon: home.services.icons[i] }));
+// Stays noindex until real copy replaces every [PLACEHOLDER] in src/data/home.ts.
+const hasPlaceholders = JSON.stringify(home).includes('[PLACEHOLDER]');
 ---
 
-<BaseLayout title="Chimney Sweep Pro" description="Homepage not built yet." noindex>
-  <div class="container-page section">
-    <p>Homepage not built yet. Component preview (dev only): <a class="text-brand underline" href="/dev/components/">/dev/components/</a></p>
-  </div>
+<BaseLayout title={home.title} description={home.description} noindex={hasPlaceholders}>
+  <Hero headline={home.hero.headline} subhead={home.hero.subhead} />
+  <TrustBadges />
+  <ServiceGrid heading={home.services.heading} intro={home.services.intro} services={services} />
+  <ProblemsList heading={home.problems.heading} intro={home.problems.intro} problems={home.problems.items} />
+  <WhyChooseUs heading={home.why.heading} features={home.why.features} />
+  <ProcessSteps heading={home.process.heading} steps={home.process.steps} />
+  <Testimonials heading={home.reviews.heading} reviews={home.reviews.items} />
+  <ServiceAreas
+    heading={home.areas.heading}
+    intro={home.areas.intro}
+    neighborhoods={home.areas.neighborhoods}
+    zips={home.areas.zips}
+  />
+  <FAQ heading={home.faq.heading} items={home.faq.items} />
+  <LeadForm heading={home.form.heading} intro={home.form.intro} />
 </BaseLayout>

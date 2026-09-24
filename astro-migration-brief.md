@@ -94,7 +94,7 @@ Direction: **Rugged Tradesman** — bold, high-contrast, built directly off the 
 | Blog category, page 2 | `/category/blogs/page/2/` |
 | Uncategorized category | `/category/uncategorized/` |
 
-**Note on category/pagination URLs**: Astro's content collections don't naturally produce WordPress-style `/category/blogs/page/2/` URLs — you'll need to either build a paginated blog index route that reproduces this exact path structure (recommended, since it's indexed), or 301-redirect it to your new blog index if you deliberately restructure blog pagination. Decide this explicitly rather than letting the routing "fall out" of however Astro's default blog template works. `/category/uncategorized/` likely has no real content — confirm on the live site whether it's worth preserving or should redirect to `/category/blogs/`.
+**Note on category/pagination URLs**: Astro's content collections don't naturally produce WordPress-style `/category/blogs/page/2/` URLs — you'll need to either build a paginated blog index route that reproduces this exact path structure (recommended, since it's indexed), or 301-redirect it to your new blog index if you deliberately restructure blog pagination. **Decision:** build a paginated blog index reproducing `/category/blogs/` and `/category/blogs/page/2/` exactly, and 301-redirect `/category/uncategorized/` to `/category/blogs/` unless the live site shows it has real content.
 
 ## Page structure to rebuild as components
 Build these as reusable Astro components (`src/components/`), then compose pages from them:
@@ -104,7 +104,7 @@ Build these as reusable Astro components (`src/components/`), then compose pages
 - `TrustBadges.astro` — CSIA Certified / Licensed & Insured / BBB Accredited / NCSG Member
 - `LeadForm.astro` — name/email/message fields, wired to Netlify Forms
 - `Testimonials.astro` — review carousel (name, neighborhood, quote)
-- `ServiceGrid.astro` — the 9-item service card grid on the homepage, each linking to its service page
+- `ServiceGrid.astro` — the 9-item service card grid on the homepage (a subset of the 14 service pages), each linking to its service page
 - `ProblemsList.astro` — the "Common chimney problems we fix" accordion/list section
 - `WhyChooseUs.astro` — 4-column feature block (Fast Response / Transparent Pricing / Certified Techs / Written Reports)
 - `ProcessSteps.astro` — the 4-step "How It Works" section
@@ -115,24 +115,12 @@ Build these as reusable Astro components (`src/components/`), then compose pages
 Each individual service page (`chimney-repair-fort-worth-tx`, etc.) reuses `Header`, `Hero` (page-specific), `LeadForm`, `WhyChooseUs`, `ServiceAreas`, `FAQ`, `Footer`. Since copy is being rewritten, treat the current live page only as a reference for *what topics/sections that page needs to cover* (services offered, pricing framing, FAQs) — not as source text to migrate verbatim.
 
 ## Content collection schema
+Defined in `src/content.config.ts` (source of truth; Astro 7 location).
 ```
-// src/content/config.ts
-services: {
-  title: string
-  slug: string          // must match table above exactly
-  metaDescription: string
-  ogImage: string
-  phone: string
-  body: markdown
-}
-blog: {
-  title: string
-  slug: string
-  date: date
-  metaDescription: string
-  body: markdown
-}
+services: { title, slug, metaDescription, ogImage, phone, faqs?, relatedPosts[], ...clusterFields }
+blog:     { title, slug, date, metaDescription, ogImage? (default site OG image), faqs?, ...clusterFields }
 ```
+Cluster fields for every page live in `docs/cluster-map.md`. Use those values in each entry's frontmatter and follow the linking rules in that file. Confirm cluster, role, hub, related, and hubAnchor on every page's checklist.
 
 ## SEO requirements — do not skip
 1. **New `<title>` and meta description per page** — you're writing these fresh; just make sure every URL in the inventory above gets one (no page should ship without a title/meta), and keep them reasonable lengths (title ~50-60 chars, meta ~150-155 chars).

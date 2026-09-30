@@ -97,6 +97,9 @@ Same-hub siblings are automatic, so `related` lists only cross-cluster links. "n
 | `level-1-vs-level-2-chimney-inspection` | sweep-inspection | spoke | chimney-inspection-fort-worth-tx | chimney-relining-fort-worth-tx |
 | `black-chimney-smoke` | sweep-inspection | spoke | chimney-sweep-fort-worth-tx | chimney-relining-fort-worth-tx, level-1-vs-level-2-chimney-inspection |
 | `smoke-smell-from-fireplace-when-not-in-use` | sweep-inspection | spoke | chimney-sweep-fort-worth-tx | fireplace-smell-wet |
+| `signs-of-a-clogged-dryer-vent` | dryer-vent | spoke | dryer-vent-cleaning-fort-worth-tx | none |
+| `how-often-to-clean-a-dryer-vent` | dryer-vent | spoke | dryer-vent-cleaning-fort-worth-tx | none |
+| `dryer-vent-fires` | dryer-vent | spoke | dryer-vent-cleaning-fort-worth-tx | none |
 
 ## Adding new content
 
@@ -119,7 +122,7 @@ Planned pages from the keyword research, with suggested placement (nothing is bu
 
 - **Bird pages need distinct jobs** so they don't compete. `bird-in-chimney-removal` is the transactional service page. `bird-stuck-in-chimney` covers the live-bird emergency and what to do right now. `bird-nest-in-chimney-fort-worth-tx` covers nests, including seasonal and fire-risk issues.
 - **Sweep pages need distinct jobs** to avoid cannibalization. `chimney-sweep-fort-worth-tx` targets "fort worth chimney sweep." `chimney-sweep-services` is the landing page for the whole service menu and links out to every hub.
-- **Hubs with no spokes yet:** `chimney-sweep-services` and `dryer-vent-cleaning-fort-worth-tx`. The related-deep-dives block should render nothing for them.
+- **Hubs with no spokes yet:** `chimney-sweep-services`. The related-deep-dives block should render nothing for it. `dryer-vent-cleaning-fort-worth-tx` now has one spoke (`signs-of-a-clogged-dryer-vent`), but that service page has no "related deep dives" block built yet — see the note in astro-migration-brief.md; it's a future addition, not built as part of that post.
 - **`chimney-sweep-services`** is a top-level hub in `sweep-inspection` that acts as the whole-menu landing page; it links to every hub via `related` and body copy.
 - **Judgment calls to confirm:** `fireplace-smell-wet` and `mold-in-fireplace` sit under leaks. `chimney-relining-fort-worth-tx` sits under the repair pillar.
 - **Checklist addition:** for every page, confirm the cluster, role, hub, related, and hubAnchor fields are filled in from this file.

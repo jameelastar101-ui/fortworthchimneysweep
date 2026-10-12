@@ -1,0 +1,93 @@
+---
+// Shared layout for every blog post (astro-migration-brief.md build sequence,
+// step 2). Pages in src/pages/[slug].astro pass a blog collection entry's
+// frontmatter in here and slot the rendered <Content /> — no per-post layout
+// or schema wiring.
+import BaseLayout from './BaseLayout.astro';
+import ArticleSchema from '../components/schema/ArticleSchema.astro';
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
+import Icon from '../components/Icon.astro';
+import { site } from '../data/site';
+
+interface Props {
+  titleTag: string; // <title> tag text (ALL CAPS per blog-post-writing-rules.md)
+  h1: string; // on-page H1, sentence case
+  metaDescription: string;
+  date?: Date; // omit entirely for posts published with no visible/schema date
+  dateModified?: Date;
+  ogImage?: string;
+  schemaImage?: string; // Article schema `image` (SEO checklist Section 9) — the
+  // post's hero/first content image; falls back to ogImage when a post has no
+  // dedicated one, so existing posts that only set ogImage keep working as-is.
+  hidePhoneCta?: boolean; // true suppresses the bottom phone CTA block below
+}
+
+const {
+  titleTag,
+  h1,
+  metaDescription,
+  date,
+  dateModified,
+  ogImage,
+  schemaImage,
+  hidePhoneCta = false,
+} = Astro.props;
+
+// Reuse the same canonical BaseLayout already computes from the request URL,
+// rather than rebuilding it from the frontmatter slug and risking drift.
+const canonicalHref = new URL(Astro.url.pathname, Astro.site).href;
+const ogImageHref = ogImage ? new URL(ogImage, Astro.site).href : undefined;
+const schemaImageHref = schemaImage ? new URL(schemaImage, Astro.site).href : ogImageHref;
+
+// Not shown on the page — still required by the Article schema below (SEO
+// checklist Section 9) whenever a date exists. Posts with no `date` in
+// frontmatter omit datePublished/dateModified from the schema entirely,
+// rather than defaulting to the build date.
+const publishedIso = date?.toISOString();
+const modifiedIso = date ? (dateModified ?? date).toISOString() : undefined;
+---
+
+<BaseLayout title={titleTag} description={metaDescription} ogImage={ogImage} ogType="article">
+  <ArticleSchema
+    headline={h1}
+    description={metaDescription}
+    datePublished={publishedIso}
+    dateModified={modifiedIso}
+    url={canonicalHref}
+    image={schemaImageHref}
+  />
+  <BreadcrumbSchema
+    items={[{ name: 'Home', url: '/' }, { name: 'Blog', url: '/category/blogs/' }, { name: h1 }]}
+  />
+
+  <article class="section pb-24 md:pb-[5.5rem]">
+    <div class="container-page max-w-3xl">
+      <p class="eyebrow">Chimney Sweep Pro Blog</p>
+      <h1>{h1}</h1>
+      <span class="rule"></span>
+
+      <div class="article-body">
+        <slot />
+      </div>
+
+      {!hidePhoneCta && (
+        <div class="mt-10 rounded-card border-2 border-line bg-cream p-6 text-center md:text-left">
+          <p class="font-extrabold">Have a chimney problem in Fort Worth or Tarrant County?</p>
+          <a href={site.phoneHref} class="btn btn-primary mt-3">Call {site.phone}</a>
+        </div>
+      )}
+    </div>
+  </article>
+
+  <!-- Sticky mobile click-to-call bar (SEO checklist Section 10). Desktop
+       already has a persistent phone CTA in the sticky header, so this only
+       renders below the md breakpoint. `pb-24` on the <article> above keeps
+       this bar from covering the last block of body content or the phone CTA
+       card when the page is scrolled to the bottom. -->
+  <div class="fixed inset-x-0 bottom-0 z-50 border-t border-line bg-white p-3 shadow-[0_-4px_12px_rgba(0,0,0,0.08)] md:hidden">
+    <a href={site.phoneHref} class="btn btn-primary w-full text-lg">
+      <Icon name="phone" class="size-5" />
+      Call {site.phone}
+    </a>
+  </div>
+</BaseLayout>

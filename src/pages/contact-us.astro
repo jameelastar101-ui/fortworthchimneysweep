@@ -1,0 +1,62 @@
+---
+// Contact page (docs/service-page-seo-checklist.md Section 12): call-only,
+// no form. A standalone static page (not a content-collection entry) since
+// its content is fixed NAP/service-area text, not per-page frontmatter.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ServiceAreas from '../components/ServiceAreas.astro';
+import CTABand from '../components/CTABand.astro';
+import Icon from '../components/Icon.astro';
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
+import { site } from '../data/site';
+import { home } from '../data/home';
+
+const titleTag = 'CONTACT CHIMNEY SWEEP PRO | FORT WORTH, TX';
+const metaDescription =
+  "Reach Chimney Sweep Pro in Saginaw, TX for chimney and dryer vent service across Fort Worth. Call (682) 354-6644.";
+---
+
+<BaseLayout title={titleTag} description={metaDescription} ogType="website">
+  <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: 'Contact' }]} />
+
+  <Hero
+    headline="Contact Chimney Sweep Pro"
+    subhead="Call now to schedule a chimney sweep, inspection, repair, or dryer vent cleaning in Fort Worth and the surrounding area."
+    ctaLabel="Call"
+    ctaId="hero"
+    showSecondaryCta={false}
+    normalCaseH1
+  />
+
+  <section class="section bg-white">
+    <div class="container-page max-w-2xl">
+      <h2 class="section-title">Get in Touch</h2>
+      <span class="rule"></span>
+      <div class="mt-8 space-y-4 text-lg">
+        <p class="font-extrabold">{site.name}</p>
+        <address class="not-italic leading-relaxed text-muted">
+          {site.address.street}<br />
+          {site.address.city}, {site.address.region} {site.address.postalCode}
+        </address>
+        <a href={site.phoneHref} class="btn btn-primary text-lg">
+          <Icon name="phone" class="size-5" />
+          Call {site.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <ServiceAreas
+    heading={home.areas.heading}
+    intro={home.areas.intro}
+    neighborhoods={home.areas.neighborhoods}
+    zips={home.areas.zips}
+  />
+
+  <CTABand
+    ctaId="closing"
+    heading="Ready to schedule?"
+    text="Call now and we'll find a time that works for your chimney or dryer vent service."
+    brickPattern
+  />
+</BaseLayout>

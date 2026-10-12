@@ -1,0 +1,22 @@
+---
+// A callout with a red left border — used for asides that need visual
+// weight without a full card (gas-dryer safety note, quote-process note,
+// "what waiting costs", code requirement, etc).
+import Inline from './Inline.astro';
+
+interface Props {
+  label?: string; // optional bold lead-in, e.g. "What waiting costs."
+  text: string;
+  tone?: 'light' | 'dark'; // 'dark' = for a charcoal band
+  class?: string;
+}
+const { label, text, tone = 'light', class: className } = Astro.props;
+const toneClass = tone === 'dark' ? 'border-white bg-white/5 text-white' : 'border-brand bg-cream text-ink';
+---
+
+<div class:list={['reveal border-l-4 py-4 pl-5 pr-4', toneClass, className]}>
+  <p class="leading-relaxed">
+    {label && <strong class="font-extrabold">{label} </strong>}
+    <Inline text={text} />
+  </p>
+</div>

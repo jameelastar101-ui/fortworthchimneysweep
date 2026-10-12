@@ -1,0 +1,32 @@
+---
+// Renders a content string that may contain `[label](href)` inline links
+// (internal pages, tel: links) as real <a> text links — see lib/inline-links.
+import { parseInlineLinks } from '../lib/inline-links';
+
+interface Props {
+  text: string;
+  class?: string;
+}
+const { text, class: className } = Astro.props;
+const parts = parseInlineLinks(text);
+const isExternal = (href: string) => /^https?:\/\//.test(href);
+---
+
+<span class={className}>
+  {
+    parts.map((p) =>
+      typeof p === 'string' ? (
+        p
+      ) : (
+        <a
+          href={p.href}
+          class="font-bold text-brand underline underline-offset-2 hover:text-brand-dark"
+          target={isExternal(p.href) ? '_blank' : undefined}
+          rel={isExternal(p.href) ? (p.nofollow ? 'nofollow noopener' : 'noopener') : undefined}
+        >
+          {p.text}
+        </a>
+      ),
+    )
+  }
+</span>

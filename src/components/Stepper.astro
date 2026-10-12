@@ -1,0 +1,93 @@
+---
+// Vertical numbered stepper with a connecting line that "draws" as it
+// scrolls into view (progressive enhancement — see the reveal script).
+// Step text may carry the `[label](href)` inline-link syntax (same as FAQ
+// answers and prose blocks elsewhere on a service page), so it renders
+// through Inline rather than as a plain string.
+import Inline from './Inline.astro';
+
+interface Props {
+  steps: { title: string; text: string }[];
+  tone?: 'light' | 'dark'; // 'dark' = white text, for a charcoal band
+}
+const { steps, tone = 'dark' } = Astro.props;
+---
+
+<ol class:list={['stepper', tone === 'light' && 'stepper-light']}>
+  {
+    steps.map((s, i) => (
+      <li class="stepper-step reveal" style={`transition-delay:${i * 70}ms`}>
+        <span class="stepper-num" aria-hidden="true">
+          {i + 1}
+        </span>
+        <div class="stepper-body">
+          <h3 class="text-xl">{s.title}</h3>
+          <p class="stepper-text mt-1">
+            <Inline text={s.text} />
+          </p>
+        </div>
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .stepper {
+    position: relative;
+    display: grid;
+    gap: 2rem;
+    color: #fff;
+  }
+  .stepper-light {
+    color: var(--color-ink);
+  }
+  .stepper-text {
+    color: color-mix(in srgb, #fff 80%, transparent);
+  }
+  .stepper-light .stepper-text {
+    color: var(--color-muted);
+  }
+  .stepper-step {
+    position: relative;
+    display: grid;
+    grid-template-columns: 3rem 1fr;
+    gap: 1.25rem;
+  }
+  .stepper-num {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    height: 3rem;
+    width: 3rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: var(--color-brand);
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: #fff;
+  }
+  .stepper-step:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 1.5rem;
+    top: 3rem;
+    width: 2px;
+    height: calc(100% + 2rem - 3rem);
+    background: color-mix(in srgb, currentColor 25%, transparent);
+    transform-origin: top;
+  }
+  .js .stepper-step:not(:last-child)::before {
+    transform: scaleY(0);
+    transition: transform 500ms ease-out;
+  }
+  .js .stepper-step.is-visible:not(:last-child)::before {
+    transform: scaleY(1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .js .stepper-step:not(:last-child)::before {
+      transform: scaleY(1) !important;
+      transition: none;
+    }
+  }
+</style>

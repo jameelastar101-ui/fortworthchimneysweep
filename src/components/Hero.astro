@@ -1,5 +1,7 @@
 ---
 import { Image } from 'astro:assets';
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 import Icon from './Icon.astro';
 import { site } from '../data/site';
 
@@ -9,8 +11,40 @@ interface Props {
   ctaLabel?: string;
   image?: ImageMetadata;
   imageAlt?: string;
+  // Alternative to `image`: a plain public/ path, checked for existence at
+  // build time so a not-yet-uploaded hero photo degrades to a dev-only
+  // placeholder instead of a broken <img> (see FramedImage.astro for the
+  // same pattern used on every other image on a service page).
+  imageSrc?: string;
+  ctaLine?: string; // short line of text beside the CTA button
+  ctaId?: string; // sets data-cta on the primary button, for click tracking
+  showSecondaryCta?: boolean; // the homepage's "Request a Quote" button
+  normalCaseH1?: boolean; // opt out of the sitewide uppercase H1/H2/H3 style
 }
-const { headline, subhead, ctaLabel = 'Call Now', image, imageAlt = '' } = Astro.props;
+const {
+  headline,
+  subhead,
+  ctaLabel = 'Call Now',
+  image,
+  imageAlt = '',
+  imageSrc,
+  ctaLine,
+  ctaId,
+  showSecondaryCta = true,
+  normalCaseH1 = false,
+} = Astro.props;
+
+const publicImageExists = imageSrc ? existsSync(join(process.cwd(), 'public', imageSrc)) : false;
+if (imageSrc && (!imageAlt || imageAlt.trim() === '' || imageAlt.trim().toUpperCase() === 'TODO')) {
+  const msg = `Hero image "${imageSrc}" is missing real alt text (got "${imageAlt}").`;
+  if (import.meta.env.PROD) throw new Error(msg);
+  console.warn(`⚠ ${msg}`);
+}
+if (imageSrc && !publicImageExists) {
+  const msg = `Hero image file not found: public${imageSrc}`;
+  if (import.meta.env.DEV) console.warn(`⚠ ${msg} — showing a dev-only placeholder.`);
+  else console.warn(`⚠ ${msg} — shipping without a hero image.`);
+}
 ---
 
 <section class="relative overflow-hidden bg-charcoal text-white">
@@ -22,18 +56,44 @@ const { headline, subhead, ctaLabel = 'Call Now', image, imageAlt = '' } = Astro
       </>
     )
   }
+  {
+    imageSrc && publicImageExists && (
+      <>
+        <img
+          src={imageSrc}
+          alt={imageAlt}
+          class="absolute inset-0 size-full object-cover"
+          loading="eager"
+          fetchpriority="high"
+          width="1600"
+          height="900"
+        />
+        <div class="absolute inset-0 bg-charcoal/75" aria-hidden="true" />
+      </>
+    )
+  }
+  {
+    imageSrc && !publicImageExists && import.meta.env.DEV && (
+      <div class="absolute inset-0 flex items-center justify-center border-4 border-dashed border-white/30 bg-charcoal">
+        <p class="px-4 text-center font-mono text-sm text-white/50">Missing image: {imageSrc}</p>
+      </div>
+    )
+  }
   <div class="absolute inset-y-0 left-0 w-2 bg-brand" aria-hidden="true"></div>
   <div class="container-page relative py-16 md:py-28">
     <div class="max-w-3xl">
-      <h1 class="text-5xl md:text-7xl">{headline}</h1>
+      <h1 class:list={['text-5xl md:text-7xl', normalCaseH1 && 'normal-case']}>{headline}</h1>
       <span class="rule"></span>
       <p class="max-w-2xl text-lg text-white/85 md:text-xl">{subhead}</p>
-      <div class="mt-8 flex flex-wrap gap-3">
-        <a href={site.phoneHref} class="btn btn-primary text-lg">
+      <div class="mt-8 flex flex-wrap items-center gap-4">
+        <a href={site.phoneHref} class="btn btn-primary text-lg" data-cta={ctaId}>
           <Icon name="phone" class="size-5" />
           {ctaLabel} {site.phone}
         </a>
-        <a href="#contact" class="btn btn-outline">Request a Quote</a>
+        {ctaLine && <p class="max-w-xs text-base font-semibold text-white/85">{ctaLine}</p>}
+        {showSecondaryCta && (
+          <a href="#contact" class="btn btn-outline">Request a Quote</a>
+        )}
       </div>
     </div>
   </div>

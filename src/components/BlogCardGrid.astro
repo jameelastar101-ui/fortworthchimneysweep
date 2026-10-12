@@ -1,0 +1,59 @@
+---
+// Card grid for the blog category index (src/pages/category/blogs/). Mirrors
+// ServiceGrid.astro's card styling. No date is shown — most posts carry no
+// `date` in frontmatter, and cards stay consistent whether one is set or not.
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+import type { CollectionEntry } from 'astro:content';
+import Icon from './Icon.astro';
+
+interface Props {
+  posts: CollectionEntry<'blog'>[];
+}
+const { posts } = Astro.props;
+
+// Hero falls back to the schema/Article image when a post has no dedicated
+// ogImage. A missing file renders no image rather than a broken <img>.
+function heroFor(post: CollectionEntry<'blog'>) {
+  const src = post.data.ogImage ?? post.data.schemaImage;
+  if (!src || !existsSync(join(process.cwd(), 'public', src))) return null;
+  return src;
+}
+---
+
+<ul class="grid gap-5 sm:grid-cols-2">
+  {
+    posts.map((post) => {
+      const hero = heroFor(post);
+      return (
+        <li>
+          <a
+            href={`/${post.data.slug}/`}
+            class="group flex h-full flex-col overflow-hidden rounded-card border-2 border-line bg-white transition hover:-translate-y-1 hover:border-brand hover:shadow-lg"
+          >
+            {hero && (
+              <div class="aspect-video w-full overflow-hidden border-b-2 border-line bg-cream">
+                <img
+                  src={hero}
+                  alt={post.data.title}
+                  width="1200"
+                  height="675"
+                  loading="lazy"
+                  decoding="async"
+                  class="size-full object-cover transition duration-300 group-hover:scale-105"
+                />
+              </div>
+            )}
+            <div class="flex flex-1 flex-col p-6">
+              <h2 class="text-xl">{post.data.title}</h2>
+              <p class="mt-2 flex-1 text-muted">{post.data.metaDescription}</p>
+              <span class="mt-4 inline-flex items-center gap-2 text-sm font-extrabold uppercase tracking-wide text-brand">
+                Read more <Icon name="arrow" class="size-4 transition group-hover:translate-x-1" />
+              </span>
+            </div>
+          </a>
+        </li>
+      );
+    })
+  }
+</ul>

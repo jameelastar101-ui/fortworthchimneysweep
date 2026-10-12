@@ -1,0 +1,41 @@
+---
+// Renders every blog post at its flat top-level slug (no /blog/ folder), per
+// the URL inventory in docs/astro-migration-brief.md.
+//
+// NOTE for whoever builds the service pages next: this file currently only
+// reads the `blog` collection. Astro won't allow a second page file matching
+// the same [slug] pattern, so adding services here means merging both
+// collections' getStaticPaths into this one file (or keying off a field to
+// tell them apart) rather than creating a parallel route.
+import { getCollection, render } from 'astro:content';
+import BlogPostLayout from '../layouts/BlogPostLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => {
+    // The schema comment in content.config.ts promises this guard; enforce it.
+    if (post.id !== post.data.slug) {
+      throw new Error(
+        `Blog post file "${post.id}" has frontmatter slug "${post.data.slug}" — they must match.`,
+      );
+    }
+    return { params: { slug: post.data.slug }, props: { post } };
+  });
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<BlogPostLayout
+  titleTag={post.data.titleTag}
+  h1={post.data.h1 ?? post.data.title}
+  metaDescription={post.data.metaDescription}
+  date={post.data.date}
+  dateModified={post.data.dateModified}
+  ogImage={post.data.ogImage}
+  schemaImage={post.data.schemaImage}
+  hidePhoneCta={post.data.hidePhoneCta}
+>
+  <Content />
+</BlogPostLayout>

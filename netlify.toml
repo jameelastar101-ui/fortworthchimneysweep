@@ -1,0 +1,16 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22.12.0"
+
+# docs/astro-migration-brief.md: the old WordPress "Uncategorized" taxonomy
+# page isn't in the preserved URL inventory and the brief flags it as "likely
+# has no real content" — redirect it to the new blog index rather than 404.
+# Any OTHER legacy URL that still gets traffic (per Search Console) needs its
+# own rule added here once that list is pulled; none are added speculatively.
+[[redirects]]
+  from = "/category/uncategorized/"
+  to = "/category/blogs/"
+  status = 301

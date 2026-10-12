@@ -1,0 +1,321 @@
+---
+// Chimney Sweep — Keller, TX service page. Sibling of
+// chimney-sweep-fort-worth-tx.astro, reusing every component from that page
+// as-is (Hero, TrustBadges, CardGrid, PricingCards, ComparisonTable, Stepper,
+// CTABand, FAQ, Inline, schema components) with no component redesigned. A
+// standalone route (not the shared [slug].astro) so this build touches no
+// other page or slug. Content collection entry is the single source of
+// truth: every visible string is read from its frontmatter, not typed here.
+//
+// Deviations from the chimney-sweep-fort-worth-tx.astro template, scoped to
+// this page file only (no shared component touched):
+//
+// 1. Decision framework: this page's source content is deliberately short
+//    (table -> links paragraph -> waiting-costs line -> urgency cards -> DIY
+//    paragraph -> insurance paragraph; no proseBlocks, no secondTable, no
+//    diyVsPro). `decision.tableNote` (already in content.config.ts) carries
+//    the links paragraph directly under the table — no new field needed. The
+//    optional "video-inspection-camera-reel-monitor-hearth" image has no
+//    slot in this shorter layout (the Fort Worth page's image-beside-table
+//    layout only exists for `decision.secondTable`, which this page doesn't
+//    have), and adding one would mean inventing a layout for a section the
+//    brief calls "short by design" — left unused; see build report.
+//
+// 2. Local section: this page's source content has TWO blocks (H3 +
+//    paragraph each), not Fort Worth's one. Extended the section below with
+//    a second block+image row, mirroring the first row's existing
+//    1.3fr/1fr grid exactly (same pattern, not a new layout) so both of the
+//    brief's local images get a slot without crowding. Block bodies render
+//    through <Inline> (block 2 carries an inline link) rather than as plain
+//    text, matching how every other link-bearing block on this page renders.
+//
+// 3. Local section links to /chimney-sweep-services/, which has no
+//    content-collection entry yet. Rendered as given, word for word, per
+//    Hard Rule 1 — flagged in the build report rather than silently dropped.
+//
+// 4. Pricing: two tiers, each with its own minPrice/maxPrice, costFactors,
+//    and a `note` with two internal links — same shape and order as the
+//    Fort Worth page. No included/not-included panels.
+//
+// 5. Schema: one Offer per pricing tier via ServiceSchema's `offers` prop,
+//    resolved from `pricing.tiers[].priceId` via src/lib/prices'
+//    `tierOffers` — the same ids the cards render.
+//
+// 6. Content images carry real alt text and resolve to real .webp files in
+//    public/images/chimney-sweep-keller/.
+import { getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustBadges from '../components/TrustBadges.astro';
+import CardGrid from '../components/CardGrid.astro';
+import FramedImage from '../components/FramedImage.astro';
+import PricingCards from '../components/PricingCards.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
+import Stepper from '../components/Stepper.astro';
+import CTABand from '../components/CTABand.astro';
+import FAQ from '../components/FAQ.astro';
+import Inline from '../components/Inline.astro';
+import ServiceSchema from '../components/schema/ServiceSchema.astro';
+import FAQSchema from '../components/schema/FAQSchema.astro';
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
+import { resolveTiers, tierOffers as resolveTierOffers, interpolatePrices } from '../lib/prices';
+
+const entry = await getEntry('services', 'chimney-sweep-keller-tx');
+if (!entry) throw new Error('Missing services entry: chimney-sweep-keller-tx');
+const d = entry.data;
+if (entry.id !== d.slug) {
+  throw new Error(`Service entry "${entry.id}" has frontmatter slug "${d.slug}" — they must match.`);
+}
+
+const canonicalHref = new URL(Astro.url.pathname, Astro.site).href;
+
+const imgProblems = d.images?.problems;
+const imgSolutions = d.images?.solutions;
+const imgProcess = d.images?.process;
+const imgLocal = d.images?.local;
+const imgLocal2 = d.images?.local2;
+
+const localBlock0 = d.local?.blocks?.[0];
+const localBlock1 = d.local?.blocks?.[1];
+
+const pricingTiers = d.pricing?.tiers && resolveTiers(d.pricing.tiers);
+const tierOffers = d.pricing?.tiers && resolveTierOffers(d.pricing.tiers);
+---
+
+<BaseLayout title={d.titleTag ?? d.title} description={d.metaDescription} ogImage={d.ogImage} ogType="website">
+  <Fragment slot="head">
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+  </Fragment>
+
+  {d.serviceType && tierOffers && tierOffers.length > 0 && (
+    <ServiceSchema
+      name={d.title}
+      description={d.metaDescription}
+      serviceType={d.serviceType}
+      areaServed={d.areaServed ?? []}
+      offers={tierOffers}
+      url={canonicalHref}
+    />
+  )}
+  {d.faqs && d.faqs.length > 0 && <FAQSchema items={d.faqs} />}
+  <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: d.title }]} />
+
+  <!-- 2. Hero -->
+  <Hero
+    headline={d.title}
+    subhead={d.subheading ?? ''}
+    ctaLabel="Call"
+    ctaId="hero"
+    showSecondaryCta={false}
+    normalCaseH1
+    ctaLine="to book a chimney sweep in Keller and start the season with a clean flue."
+    imageSrc={d.heroImage?.src}
+    imageAlt={d.heroImage?.alt ?? ''}
+  />
+  <TrustBadges />
+
+  <!-- 3. Problems -->
+  {d.problems && (
+    <section class="section bg-white">
+      <div class="container-page">
+        <h2 class="section-title">{d.problems.heading}</h2>
+        <span class="rule"></span>
+        <p class="reveal max-w-[65ch] text-lg leading-relaxed">{d.problems.opening}</p>
+        <div class="mt-8 grid gap-10 md:grid-cols-[3fr_2fr] md:items-start">
+          <CardGrid items={d.problems.items} columns={3} />
+          {imgProblems && <FramedImage src={imgProblems.src} alt={imgProblems.alt} caption={imgProblems.caption} ratio="4:3" />}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- 4. Solutions -->
+  {d.solutions && (
+    <section class="section bg-cream">
+      <div class="container-page">
+        <h2 class="section-title">{d.solutions.heading}</h2>
+        <span class="rule"></span>
+        <p class="reveal max-w-[65ch] text-lg leading-relaxed">{d.solutions.opening}</p>
+        {d.solutions.imageSide !== 'none' && imgSolutions ? (
+          <div class="mt-8 grid gap-10 md:grid-cols-[2fr_3fr] md:items-start">
+            {d.solutions.imageSide === 'left' && (
+              <FramedImage src={imgSolutions.src} alt={imgSolutions.alt} caption={imgSolutions.caption} ratio="4:3" />
+            )}
+            <div>
+              <CardGrid items={d.solutions.items} columns={3} />
+            </div>
+            {d.solutions.imageSide === 'right' && (
+              <FramedImage src={imgSolutions.src} alt={imgSolutions.alt} caption={imgSolutions.caption} ratio="4:3" />
+            )}
+          </div>
+        ) : (
+          <div class="mt-8">
+            <CardGrid items={d.solutions.items} columns={3} />
+          </div>
+        )}
+        {d.solutions.closingParagraphs && d.solutions.closingParagraphs.length > 0 && (
+          <div class="mt-8 max-w-[65ch] space-y-4">
+            {d.solutions.closingParagraphs.map((p) => (
+              <p class="reveal text-muted">{p}</p>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  )}
+
+  <!-- 5. Pricing -->
+  {d.pricing && (
+    <section class="section bg-white">
+      <div class="container-page">
+        <h2 class="section-title">{d.pricing.heading}</h2>
+        <span class="rule"></span>
+        <p class="reveal max-w-[65ch] text-lg leading-relaxed">{interpolatePrices(d.pricing.opening)}</p>
+        <div class="mt-8">
+          <PricingCards tiers={pricingTiers!} />
+        </div>
+        {d.pricing.costFactors && d.pricing.costFactors.length > 0 && (
+          <ul class="reveal mt-8 max-w-[65ch] list-disc space-y-2 pl-5 text-muted">
+            {d.pricing.costFactors.map((f) => <li>{f}</li>)}
+          </ul>
+        )}
+        {d.pricing.note && (
+          <p class="reveal mt-6 max-w-[65ch] text-muted">
+            <Inline text={d.pricing.note} />
+          </p>
+        )}
+        <p class="reveal mt-8 max-w-[65ch] font-semibold">{d.pricing.closingLine}</p>
+      </div>
+    </section>
+  )}
+
+  <!-- 6. Decision framework (short by design: table -> links paragraph ->
+       waiting-costs line -> urgency cards -> DIY paragraph -> insurance
+       paragraph; no proseBlocks, no secondTable, no diyVsPro) -->
+  {d.decision && (
+    <section class="section border-t border-line bg-white">
+      <div class="container-page">
+        <h2 class="section-title">{d.decision.heading}</h2>
+        <span class="rule"></span>
+        <p class="reveal max-w-[65ch] text-lg leading-relaxed">{d.decision.opening}</p>
+
+        <div class="mt-8">
+          <ComparisonTable head={d.decision.tableHead} rows={d.decision.tableRows} />
+        </div>
+        {d.decision.tableNote && (
+          <p class="reveal mt-6 max-w-[65ch] text-muted">
+            <Inline text={d.decision.tableNote} />
+          </p>
+        )}
+
+        {d.decision.waitingCostsNote && <p class="reveal mt-8 max-w-[65ch] text-muted">{d.decision.waitingCostsNote}</p>}
+
+        <div class="mt-10 max-w-3xl">
+          <CardGrid items={d.decision.urgency} columns={d.decision.urgency.length === 3 ? 3 : 2} />
+        </div>
+
+        {d.decision.diyNote && <p class="reveal mt-8 max-w-[65ch] text-muted">{d.decision.diyNote}</p>}
+
+        <p class="reveal mt-8 max-w-[65ch] text-muted">{d.decision.insuranceNote}</p>
+      </div>
+    </section>
+  )}
+
+  <!-- 7. Mid-page CTA -->
+  {d.midCta && <CTABand ctaId="mid" heading={d.midCta.headline} text={d.midCta.text} />}
+
+  <!-- 8. Process -->
+  {d.process && d.steps && d.steps.length > 0 && (
+    <section class="section bg-cream">
+      <div class="container-page">
+        <h2 class="section-title">{d.process.heading}</h2>
+        <span class="rule"></span>
+        <div class="mt-8 grid gap-10 md:grid-cols-[1.2fr_1fr] md:items-start">
+          {imgProcess && (
+            <div class="order-1 md:order-2 md:sticky md:top-24">
+              <FramedImage src={imgProcess.src} alt={imgProcess.alt} caption={imgProcess.caption} ratio="4:3" />
+            </div>
+          )}
+          <div class="order-2 md:order-1">
+            <Stepper steps={d.steps} tone="light" />
+            {d.process.note && (
+              <p class="reveal mt-6 text-muted">
+                <Inline text={d.process.note} />
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- 9. Local (two blocks, each paired with its own image — same
+       1.3fr/1fr grid repeated for the second block, not a new layout) -->
+  {d.local && (
+    <section class="section bg-white">
+      <div class="container-page">
+        <h2 class="section-title">{d.local.heading}</h2>
+        <span class="rule"></span>
+
+        <div class="mt-8 grid gap-8 md:grid-cols-[1.3fr_1fr] md:items-start">
+          {localBlock0 && (
+            <div class="reveal">
+              <h3 class="text-xl">{localBlock0.heading}</h3>
+              <p class="mt-2 text-muted">
+                <Inline text={localBlock0.body} />
+              </p>
+            </div>
+          )}
+          {imgLocal && <FramedImage src={imgLocal.src} alt={imgLocal.alt} caption={imgLocal.caption} ratio="4:3" class="md:justify-self-end" />}
+        </div>
+
+        {localBlock1 && (
+          <div class="mt-8 grid gap-8 md:grid-cols-[1.3fr_1fr] md:items-start">
+            <div class="reveal">
+              <h3 class="text-xl">{localBlock1.heading}</h3>
+              <p class="mt-2 text-muted">
+                <Inline text={localBlock1.body} />
+              </p>
+            </div>
+            {imgLocal2 && <FramedImage src={imgLocal2.src} alt={imgLocal2.alt} caption={imgLocal2.caption} ratio="4:3" class="md:justify-self-end" />}
+          </div>
+        )}
+
+        <div class="reveal mt-10 max-w-[65ch] space-y-2 border-t border-line pt-6">
+          <p>
+            <Inline text={d.local.serviceAreaLine} />
+          </p>
+          <p>{d.local.nap}</p>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- 10. FAQ -->
+  {d.faqs && d.faqs.length > 0 && <FAQ heading={d.faqHeading} items={d.faqs} bg="cream" />}
+
+  <!-- 11. Closing CTA -->
+  {d.closingCta && (
+    <CTABand ctaId="closing" heading={d.closingCta.headline} text={d.closingCta.text} brickPattern />
+  )}
+</BaseLayout>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  if (reveals.length) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' },
+    );
+    reveals.forEach((el) => io.observe(el));
+  }
+</script>

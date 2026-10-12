@@ -1,0 +1,20 @@
+---
+// The single reusable call-to-action button for service pages (call only —
+// no forms, no Contact link). Label is always exactly "Call (682) 354-6644"
+// per the CTA rules in docs/service-page-seo-checklist.md Section 12.
+import Icon from './Icon.astro';
+import { site } from '../data/site';
+
+interface Props {
+  ctaId: 'hero' | 'mid' | 'closing';
+  class?: string;
+  variant?: 'primary' | 'outline';
+}
+const { ctaId, class: className, variant = 'primary' } = Astro.props;
+const variantClass = variant === 'outline' ? 'btn-outline' : 'btn-primary';
+---
+
+<a href={site.phoneHref} class:list={['btn', variantClass, 'text-lg', className]} data-cta={ctaId}>
+  <Icon name="phone" class="size-5" />
+  Call {site.phone}
+</a>

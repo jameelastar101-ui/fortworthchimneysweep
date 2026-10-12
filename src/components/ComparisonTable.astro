@@ -1,0 +1,45 @@
+---
+// A real comparison <table> that scrolls inside its own overflow-x
+// container on small screens, instead of breaking the page layout.
+//
+// Cell text renders through Inline instead of as a plain string, so a cell
+// can carry a `[label](href)` link (the chimney-sweep-services hub's router
+// table links each row to that service's page). Plain cells with no link
+// syntax render identically to before.
+import Inline from './Inline.astro';
+
+interface Props {
+  head: string[];
+  rows: string[][];
+}
+const { head, rows } = Astro.props;
+---
+
+<div class="reveal overflow-x-auto rounded-card border-2 border-line">
+  <table class="w-full min-w-[640px] border-collapse text-sm">
+    <thead>
+      <tr class="bg-ink text-white">
+        {head.map((h) => <th scope="col" class="p-4 text-left font-extrabold">{h}</th>)}
+      </tr>
+    </thead>
+    <tbody>
+      {
+        rows.map((row, i) => (
+          <tr class:list={[i % 2 === 1 && 'bg-line/40']}>
+            {row.map((cell, ci) =>
+              ci === 0 ? (
+                <th scope="row" class="border-t border-line p-4 text-left font-bold">
+                  <Inline text={cell} />
+                </th>
+              ) : (
+                <td class="border-t border-line p-4 align-top">
+                  <Inline text={cell} />
+                </td>
+              ),
+            )}
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>

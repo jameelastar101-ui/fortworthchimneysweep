@@ -1,0 +1,78 @@
+---
+// Service schema for service pages (SEO checklist Section 9). Every field is
+// pulled from the calling page's props, which come straight from that page's
+// content-collection frontmatter — nothing here is hand-typed separately
+// from the visible copy.
+import { site } from '../../data/site';
+
+interface Props {
+  name: string;
+  description: string;
+  serviceType: string;
+  areaServed: string[];
+  priceLow?: number;
+  priceHigh?: number;
+  // One Offer per pricing tier, for a service priced as distinct tiers
+  // rather than one aggregate range (e.g. simple vs. hard animal removal).
+  // When given, this replaces the single priceLow/priceHigh offer below.
+  // Omit a tier's maxPrice for an open-ended price (e.g. "$500-$600+").
+  offers?: { minPrice: number; maxPrice?: number }[];
+  // chimney-sweep-services hub only: when both `offers` AND these two are
+  // given, the per-row Offers are wrapped in an AggregateOffer carrying the
+  // overall lowPrice/highPrice, instead of a bare Offer array — the hub's
+  // pricing table has both an overall range and one row of its own per
+  // service. Every other page omits these and keeps the plain offers array.
+  priceOfferLow?: number;
+  priceOfferHigh?: number;
+  url: string; // full canonical URL of the page
+}
+
+const { name, description, serviceType, areaServed, priceLow, priceHigh, offers, priceOfferLow, priceOfferHigh, url } =
+  Astro.props;
+
+const individualOffers = offers?.map((o) => ({
+  '@type': 'Offer',
+  priceCurrency: 'USD',
+  priceSpecification: {
+    '@type': 'PriceSpecification',
+    minPrice: o.minPrice,
+    ...(o.maxPrice != null ? { maxPrice: o.maxPrice } : {}),
+    priceCurrency: 'USD',
+  },
+}));
+
+const offersData = individualOffers
+  ? priceOfferLow != null && priceOfferHigh != null
+    ? {
+        '@type': 'AggregateOffer',
+        priceCurrency: 'USD',
+        lowPrice: priceOfferLow,
+        highPrice: priceOfferHigh,
+        offers: individualOffers,
+      }
+    : individualOffers
+  : {
+      '@type': 'Offer',
+      priceCurrency: 'USD',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        minPrice: priceLow,
+        maxPrice: priceHigh,
+        priceCurrency: 'USD',
+      },
+    };
+
+const data = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType,
+  name,
+  description,
+  provider: { '@id': `${site.url}/#business` },
+  areaServed: areaServed.map((city) => ({ '@type': 'City', name: city })),
+  offers: offersData,
+  url,
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(data)} />

@@ -90,7 +90,7 @@ Lint from synthetic fabrics is especially combustible, according to <a href="htt
 
 ### Restricted or badly installed vents
 
-A restricted vent holds heat and lint inside the dryer. Long runs, sharp bends, crushed duct, and a blocked exterior hood all restrict airflow.
+A restricted vent holds heat and lint inside the dryer. Long runs, sharp bends, crushed duct, and a blocked exterior hood all restrict airflow. See [dryer vent length and routing](/dryer-vent-length-and-routing/) for the 35-foot limit, how bends count, and how to measure your own run.
 
 The exterior hood can clog with leaves and bird nests, especially after windy weather, according to Consumer Reports.
 

@@ -1,0 +1,42 @@
+---
+// Charcoal call-to-action band (mid-page and closing). Charcoal keeps the
+// red button at full contrast wherever it appears on the page.
+//
+// `ctaLine` is an addition for the chimney-sweep-services hub's closing CTA,
+// which the brief asks to lay out like the Hero CTA: a headline, then the
+// button with its continuation text beside it, rather than above it. `text`
+// stays required-in-practice and renders exactly as before when `ctaLine` is
+// omitted; passing `ctaLine` instead renders that text beside the button
+// (Hero's own CTA row pattern) and skips the centered paragraph.
+import CallButton from './CallButton.astro';
+
+interface Props {
+  ctaId: 'mid' | 'closing';
+  heading?: string;
+  text?: string;
+  ctaLine?: string;
+  brickPattern?: boolean;
+}
+const { ctaId, heading, text, ctaLine, brickPattern = false } = Astro.props;
+---
+
+<section class:list={['reveal relative overflow-hidden bg-charcoal py-14 text-center text-white', brickPattern && 'cta-brick']}>
+  <div class="container-page relative grid gap-5">
+    {heading && <h2 class="section-title">{heading}</h2>}
+    {text && <p class="mx-auto max-w-2xl text-lg text-white/85">{text}</p>}
+    <div class:list={['mx-auto', ctaLine && 'flex max-w-none flex-wrap items-center justify-center gap-4']}>
+      <CallButton ctaId={ctaId} />
+      {ctaLine && <p class="max-w-xs text-left text-base font-semibold text-white/85">{ctaLine}</p>}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Running-bond brick courses — a two-row SVG tile with the second row's
+     joints offset by half a brick width, same as a real wall (a CSS
+     gradient can't express that row-to-row offset on its own). */
+  .cta-brick {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='32'%3E%3Cg fill='none' stroke='white' stroke-opacity='0.07' stroke-width='2'%3E%3Cpath d='M0 0H64M0 16H64M0 32H64M0 0V16M32 0V16M64 0V16M16 16V32M48 16V32'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 64px 32px;
+  }
+</style>

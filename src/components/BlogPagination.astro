@@ -1,0 +1,48 @@
+---
+// Prev/next pager for the blog category index. URLs follow the WordPress-style
+// path the migration brief calls for: /category/blogs/ (page 1), then
+// /category/blogs/page/2/, /category/blogs/page/3/, etc.
+import Icon from './Icon.astro';
+
+interface Props {
+  currentPage: number;
+  totalPages: number;
+}
+const { currentPage, totalPages } = Astro.props;
+
+const pageHref = (n: number) => (n <= 1 ? '/category/blogs/' : `/category/blogs/page/${n}/`);
+const prevHref = currentPage > 1 ? pageHref(currentPage - 1) : undefined;
+const nextHref = currentPage < totalPages ? pageHref(currentPage + 1) : undefined;
+---
+
+{
+  totalPages > 1 && (
+    <nav class="mt-12 flex items-center justify-between" aria-label="Blog pagination">
+      {prevHref ? (
+        <a
+          href={prevHref}
+          class="inline-flex items-center gap-2 rounded-card border-2 border-ink px-4 py-2 text-sm font-extrabold uppercase tracking-wide hover:bg-ink hover:text-white"
+        >
+          <Icon name="arrow" class="size-4 rotate-180" />
+          Newer posts
+        </a>
+      ) : (
+        <span />
+      )}
+      <span class="text-sm font-extrabold uppercase tracking-wide text-muted">
+        Page {currentPage} of {totalPages}
+      </span>
+      {nextHref ? (
+        <a
+          href={nextHref}
+          class="inline-flex items-center gap-2 rounded-card border-2 border-ink px-4 py-2 text-sm font-extrabold uppercase tracking-wide hover:bg-ink hover:text-white"
+        >
+          Older posts
+          <Icon name="arrow" class="size-4" />
+        </a>
+      ) : (
+        <span />
+      )}
+    </nav>
+  )
+}

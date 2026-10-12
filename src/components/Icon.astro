@@ -52,6 +52,55 @@ const icons: Record<string, Part[]> = {
   chevron: [{ d: 'M6 9l6 6 6-6', tone: 'line' }],
   menu: [{ d: 'M4 6h16M4 12h16M4 18h16', tone: 'line' }],
   close: [{ d: 'M6 6l12 12M18 6L6 18', tone: 'line' }],
+  droplet: [
+    { d: 'M12 3c3 4 6.5 8 6.5 12a6.5 6.5 0 0 1-13 0C5.5 11 9 7 12 3z', tone: 'main' },
+    { d: 'M9.5 15.5a2.7 2.7 0 0 0 2.7 2.7', tone: 'whiteline' },
+  ],
+  thermometer: [
+    { d: 'M10.5 4a1.5 1.5 0 0 1 3 0v9.6a4 4 0 1 1-3 0z', tone: 'main' },
+    { d: 'M12 8v6.8', tone: 'whiteline' },
+    { d: 'M12 18a2 2 0 1 0 0-4 2 2 0 0 0 0 4z', tone: 'accent' },
+  ],
+  wind: [
+    { d: 'M3 8h11a2.5 2.5 0 1 0-2.3-3.4', tone: 'line' },
+    { d: 'M3 12h15a2.5 2.5 0 1 1-2.3 3.4', tone: 'line' },
+    { d: 'M3 16h9a2 2 0 1 1-1.8 2.8', tone: 'line' },
+  ],
+  vent: [
+    { d: 'M4 5h16v3H4z', tone: 'main' },
+    { d: 'M4 10h16v9H4z', tone: 'accent' },
+    { d: 'M8 13.5a4 4 0 0 1 8 0', tone: 'whiteline' },
+  ],
+  // Bare checkmark, no circle — for contexts where "check" (red circle) would
+  // clash with a different semantic color, e.g. a green "all clear" card.
+  checkline: [{ d: 'M5 13l4 4L19 7', tone: 'line' }],
+  lint: [
+    { d: 'M12 3a9 9 0 1 0 9 9', tone: 'line' },
+    { d: 'M12 7a5 5 0 1 0 5 5', tone: 'line' },
+    { d: 'M12 11a1 1 0 1 0 1 1', tone: 'line' },
+  ],
+  gauge: [
+    { d: 'M4 18a8 8 0 1 1 16 0', tone: 'line' },
+    { d: 'M12 18l4-6', tone: 'line' },
+    { d: 'M12 18a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z', tone: 'accent' },
+  ],
+  brush: [
+    { d: 'M4 20l6-6', tone: 'line' },
+    { d: 'M9 15l6-6a2.5 2.5 0 0 1 3.5 3.5l-6 6z', tone: 'main' },
+    { d: 'M11 6l2 2M14 4l2 2M17 6l1.5 1.5', tone: 'whiteline' },
+  ],
+  search: [
+    { d: 'M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14z', tone: 'line' },
+    { d: 'M16.2 16.2L21 21', tone: 'line' },
+  ],
+  camera: [
+    {
+      d: 'M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z',
+      tone: 'main',
+    },
+    { d: 'M12 18a4 4 0 1 0 0-8 4 4 0 0 0 0 8z', tone: 'accent' },
+    { d: 'M12 12.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z', tone: 'white' },
+  ],
 };
 
 interface Props {

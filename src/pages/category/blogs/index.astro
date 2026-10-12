@@ -1,0 +1,37 @@
+---
+// Blog category index — first page. URL inventory (astro-migration-brief.md)
+// calls for the WordPress-style path /category/blogs/, with further pages at
+// /category/blogs/page/2/ (see page/[page].astro), not Astro's default
+// paginate() scheme. Every built blog post must be reachable from here so
+// none of them is an orphan (docs/blog-post-seo-checklist.md Section 8).
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BreadcrumbSchema from '../../../components/schema/BreadcrumbSchema.astro';
+import BlogCardGrid from '../../../components/BlogCardGrid.astro';
+import BlogPagination from '../../../components/BlogPagination.astro';
+import { getBlogPostsSorted, BLOG_PAGE_SIZE } from '../../../lib/blog-list';
+
+const posts = await getBlogPostsSorted();
+const totalPages = Math.max(1, Math.ceil(posts.length / BLOG_PAGE_SIZE));
+const pageItems = posts.slice(0, BLOG_PAGE_SIZE);
+---
+
+<BaseLayout
+  title="CHIMNEY & DRYER VENT BLOG | CHIMNEY SWEEP PRO"
+  description="Guides on chimney leaks, caps, animal removal, inspections, and dryer vent maintenance from Chimney Sweep Pro, serving Fort Worth and Tarrant County."
+>
+  <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: 'Blog' }]} />
+
+  <section class="section">
+    <div class="container-page">
+      <p class="eyebrow">Chimney Sweep Pro Blog</p>
+      <h1>Chimney and dryer vent guides for Fort Worth homeowners</h1>
+      <span class="rule"></span>
+
+      <div class="mt-8">
+        <BlogCardGrid posts={pageItems} />
+      </div>
+
+      <BlogPagination currentPage={1} totalPages={totalPages} />
+    </div>
+  </section>
+</BaseLayout>

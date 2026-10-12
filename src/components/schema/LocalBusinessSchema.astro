@@ -24,10 +24,14 @@ const data = {
     postalCode: site.address.postalCode,
     addressCountry: 'US',
   },
-  areaServed: [
-    { '@type': 'City', name: 'Fort Worth', containedInPlace: { '@type': 'State', name: 'Texas' } },
-    { '@type': 'City', name: 'Keller', containedInPlace: { '@type': 'State', name: 'Texas' } },
-  ],
+  // site.areaServed is the single source of truth, also read by the
+  // homepage/contact-us ServiceAreas section — kept in sync, not hand-typed
+  // separately (docs/service-page-seo-checklist.md Section 9).
+  areaServed: site.areaServed.map((name) => ({
+    '@type': 'City',
+    name,
+    containedInPlace: { '@type': 'State', name: 'Texas' },
+  })),
 };
 ---
 

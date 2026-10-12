@@ -1,0 +1,48 @@
+---
+// Two side-by-side "what's included / what's not" bullet lists — a
+// checkmark per included item, an x for each excluded item. Text may carry
+// a `[label](href)` inline link (see lib/inline-links).
+import Icon from './Icon.astro';
+import Inline from './Inline.astro';
+
+interface Props {
+  includedHeading: string;
+  included: string[];
+  notIncludedHeading: string;
+  notIncluded: string[];
+}
+const { includedHeading, included, notIncludedHeading, notIncluded } = Astro.props;
+---
+
+<div class="grid gap-8 sm:grid-cols-2">
+  <div class="reveal">
+    <h3 class="text-xl">{includedHeading}</h3>
+    <ul class="mt-4 space-y-2">
+      {
+        included.map((item) => (
+          <li class="flex items-start gap-3">
+            <Icon name="check" class="mt-0.5 size-5 shrink-0" />
+            <span>
+              <Inline text={item} />
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <div class="reveal" style="transition-delay:80ms">
+    <h3 class="text-xl">{notIncludedHeading}</h3>
+    <ul class="mt-4 space-y-2">
+      {
+        notIncluded.map((item) => (
+          <li class="flex items-start gap-3 text-muted">
+            <Icon name="close" class="mt-0.5 size-5 shrink-0" />
+            <span>
+              <Inline text={item} />
+            </span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>

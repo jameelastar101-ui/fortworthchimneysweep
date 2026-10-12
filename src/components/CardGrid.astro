@@ -1,0 +1,64 @@
+---
+// Generic grid of parallel-item cards — problems, solutions, urgency levels,
+// DIY vs. professional. Icon and tone are both optional per item, so the
+// same component covers a plain icon+title+body card and a color-coded one.
+//
+// `image` and `columns={4}` are additions for the chimney-sweep-services
+// hub's 8-card services grid (image-on-top cards, 4-across desktop) — both
+// optional/additive, so every existing icon-card caller renders unchanged.
+// `body` now renders through Inline instead of as a plain string, so a
+// card's body can carry `[label](href)` links (the hub's service cards each
+// link to that service's own page); plain bodies with no link syntax render
+// identically to before.
+import Icon from './Icon.astro';
+import FramedImage from './FramedImage.astro';
+import Inline from './Inline.astro';
+
+interface Props {
+  items: {
+    icon?: string;
+    image?: { src: string; alt: string; caption?: string };
+    title: string;
+    body: string;
+    tone?: 'urgent' | 'soon' | 'ok';
+  }[];
+  columns?: 2 | 3 | 4;
+}
+const { items, columns = 2 } = Astro.props;
+
+const toneBorder: Record<string, string> = {
+  urgent: 'border-t-brand',
+  soon: 'border-t-warn',
+  ok: 'border-t-ok',
+};
+const toneText: Record<string, string> = {
+  urgent: 'text-brand',
+  soon: 'text-warn',
+  ok: 'text-ok',
+};
+const colClass = columns === 4 ? 'sm:grid-cols-2 lg:grid-cols-4' : columns === 3 ? 'sm:grid-cols-3' : 'sm:grid-cols-2';
+---
+
+<ul class:list={['grid gap-5', colClass]}>
+  {
+    items.map((item, i) => (
+      <li
+        class:list={[
+          'reveal border border-line bg-white p-6',
+          'border-t-4',
+          toneBorder[item.tone ?? ''] ?? 'border-t-ink',
+        ]}
+        style={`transition-delay:${i * 70}ms`}
+      >
+        {item.image && (
+          <FramedImage src={item.image.src} alt={item.image.alt} caption={item.image.caption} ratio="4:3" class="mb-4" />
+        )}
+        {item.icon && <Icon name={item.icon} class:list={['size-9', toneText[item.tone ?? ''] ?? 'text-ink']} />}
+        <h3 class:list={['text-xl', item.icon && 'mt-3', toneText[item.tone ?? '']]}>{item.title}</h3>
+        <p class="mt-2 text-muted">
+          <Inline text={item.body} />
+        </p>
+      </li>
+    ))
+  }
+</ul>

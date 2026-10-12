@@ -1,0 +1,27 @@
+---
+// A bare content image for MDX blog posts that renders only when its file
+// exists in public/ — for slots where the image hasn't been supplied yet.
+// Unlike FramedImage.astro (service pages), this has no frame/caption/dev
+// placeholder: it's a plain <img> for the article body, styled by the
+// `.article-body img` rule in global.css. No image, no <img> — never a
+// broken src or an empty wrapper element.
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+
+interface Props {
+  src: string; // public/ path, e.g. /images/blog/slug/foo.webp
+  alt: string;
+  width: number;
+  height: number;
+  loading?: 'lazy' | 'eager';
+}
+const { src, alt, width, height, loading = 'lazy' } = Astro.props;
+
+const exists = existsSync(join(process.cwd(), 'public', src));
+---
+
+{
+  exists && (
+    <img src={src} alt={alt} width={width} height={height} loading={loading} decoding="async" />
+  )
+}

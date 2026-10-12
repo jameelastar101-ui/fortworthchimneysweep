@@ -92,6 +92,12 @@ Same-hub siblings are automatic, so `related` lists only cross-cluster links. "n
 | `mold-in-fireplace` | leaks | spoke | chimney-leak-repair-fort-worth-tx | none |
 | `chimney-cap-installation-cost` | caps | spoke | chimney-cap-installation-fort-worth-tx | chimney-leaking-after-hail |
 | `chimney-cap-blew-off` | caps | spoke | chimney-cap-installation-fort-worth-tx | chimney-leaking-after-hail |
+| `chimney-cap-types` | caps | spoke | chimney-cap-installation-fort-worth-tx | none |
+| `chimney-cap-vs-chase-cover` | caps | spoke | chimney-cap-installation-fort-worth-tx | none |
+| `chimney-cap-needs-replacing` | caps | spoke | chimney-cap-installation-fort-worth-tx | none |
+| `chimney-without-a-cap` | caps | spoke | chimney-cap-installation-fort-worth-tx | none |
+| `top-sealing-damper-vs-chimney-cap` | caps | spoke | chimney-cap-installation-fort-worth-tx | none |
+| `chimney-cap-sizes` | caps | spoke | chimney-cap-installation-fort-worth-tx | none |
 | `bird-stuck-in-chimney` | animals | spoke | chimney-animal-removal-fort-worth-tx | chimney-cap-installation-fort-worth-tx |
 | `bird-nest-in-chimney-fort-worth-tx` | animals | spoke | chimney-animal-removal-fort-worth-tx | chimney-cap-installation-fort-worth-tx |
 | `level-1-vs-level-2-chimney-inspection` | sweep-inspection | spoke | chimney-inspection-fort-worth-tx | chimney-relining-fort-worth-tx |
@@ -100,6 +106,10 @@ Same-hub siblings are automatic, so `related` lists only cross-cluster links. "n
 | `signs-of-a-clogged-dryer-vent` | dryer-vent | spoke | dryer-vent-cleaning-fort-worth-tx | none |
 | `how-often-to-clean-a-dryer-vent` | dryer-vent | spoke | dryer-vent-cleaning-fort-worth-tx | none |
 | `dryer-vent-fires` | dryer-vent | spoke | dryer-vent-cleaning-fort-worth-tx | none |
+| `dryer-vent-length-and-routing` | dryer-vent | spoke | dryer-vent-cleaning-fort-worth-tx | none |
+| `diy-vs-professional-dryer-vent-cleaning` | dryer-vent | spoke | dryer-vent-cleaning-fort-worth-tx | none |
+| `foil-vs-rigid-dryer-duct` | dryer-vent | spoke | dryer-vent-cleaning-fort-worth-tx | none |
+| `dryer-taking-too-long-to-dry` | dryer-vent | spoke | dryer-vent-cleaning-fort-worth-tx | none |
 
 ## Adding new content
 
@@ -126,3 +136,4 @@ Planned pages from the keyword research, with suggested placement (nothing is bu
 - **`chimney-sweep-services`** is a top-level hub in `sweep-inspection` that acts as the whole-menu landing page; it links to every hub via `related` and body copy.
 - **Judgment calls to confirm:** `fireplace-smell-wet` and `mold-in-fireplace` sit under leaks. `chimney-relining-fort-worth-tx` sits under the repair pillar.
 - **Checklist addition:** for every page, confirm the cluster, role, hub, related, and hubAnchor fields are filled in from this file.
+- **`dryer-vent-length-and-routing`** covers multi-story/upstairs-laundry routing itself (see its "Dryer vent routing in multi-story homes" section). No separate `dryer-vent-multi-story-homes` page exists or is planned — don't create one; that topic is merged into this post.

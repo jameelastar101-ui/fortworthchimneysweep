@@ -1,0 +1,326 @@
+---
+// Chimney Sweep Services hub page — the whole-menu landing page linking out
+// to every other built service page. Built from the same template
+// components as the single-service pages (Hero, Pricing, Mid CTA, Process,
+// Local, FAQ, Closing CTA, Header/Footer, TrustBadges), per the brief. A
+// standalone route (not the shared [slug].astro) so this build touches no
+// other page or slug. Content collection entry is the single source of
+// truth: every visible string is read from its frontmatter, not typed here.
+//
+// This page's slot order differs from every single-service page, per the
+// brief, and needed the following small, additive extensions (none of them
+// redesign an existing component — see each component file's own comment):
+//
+// 1. Router ("Which Chimney Service Do You Need?"), slot 2, replacing
+//    Problems: a new optional `router` field (heading/opening/table) in
+//    content.config.ts, rendered here with ComparisonTable in the same
+//    table+image 3fr/2fr grid the other pages use for decision.secondTable.
+//    No Problems cards render on this page — a visitor meets the router
+//    first, per the brief.
+//
+// 2. Services grid, slot 3, 8 cards: reused `solutions` (ServiceGrid's
+//    shape doesn't fit — no image, and its description has no room for the
+//    multiple in-body links each card needs). CardGrid gained an optional
+//    `image` (rendered above the icon/title) and now renders `body` through
+//    Inline so a card's body can carry `[label](href)` links, plus a
+//    `columns={4}` layout (1 across mobile, 2 tablet, 4 desktop) — all
+//    additive; every existing icon-only, link-free CardGrid caller is
+//    unaffected. The header image renders above the grid via a new
+//    `images.servicesHeader` key (no schema change needed; `images` was
+//    already a generic record).
+//
+// 3. Pricing, slot 4: table mode. `pricing.tiers` is now optional, and
+//    `pricing.tableHead`/`tableRows` are new optional siblings — this page
+//    sets the table fields and omits tiers, so ComparisonTable renders
+//    instead of PricingCards. `pricing.closingLine` is now optional too:
+//    this page's source copy gives only the one note paragraph below the
+//    table (which already ends "...given to you in writing before work
+//    starts"), with no separate bolded closing line, so no second line
+//    renders. The pricing image (written-price-quote-clipboard-hearth) is
+//    placed beside the note, not beside the table itself — the table
+//    already needs its own horizontal scroll on mobile, and a 3-column
+//    price table felt too cramped sharing a row with an image column.
+//
+// 4. Urgency block, directly under the pricing note/image, no heading of
+//    its own, per the brief ("do NOT render a separate Decision Framework
+//    section or its heading"). New optional `pricing` fields (urgencyLabel,
+//    urgency, waitingCostsNote, diyNote, insuranceNote) carry this content
+//    inside the Pricing section's own <section> instead of a second one.
+//    This reads as a continuation of the pricing band visually (same white
+//    background, no border/section break before the urgency label) but it
+//    is still a second scroll-reveal "chunk" a fast skim could miss as
+//    belonging to pricing — see the build report for a suggested fix (not
+//    implemented, per the brief).
+//
+// 5. Local, slot 8: no H3 subheadings, two plain paragraphs instead of the
+//    usual H3+body blocks. `local.blocks` is now optional and a new
+//    `local.paragraphs` (plain strings, no heading) carries the first
+//    paragraph. The second paragraph (the business address + cities-served
+//    sentence) maps onto the existing `serviceAreaLine` field, which every
+//    other page already pairs with `nap` in a bordered block below the main
+//    copy — same layout, this page just has no blocks above it. Two images
+//    render side by side below that block (`images.localLeft`/`localRight`,
+//    no schema change needed), instead of the usual single image beside one
+//    block.
+//
+// 6. Closing CTA, slot 10: laid out like the Hero CTA (headline, then the
+//    button with its continuation text beside it, not above it). CTABand
+//    gained an optional `ctaLine` prop for exactly this; `text` is now
+//    optional and unused here. Every other page's closing CTA keeps using
+//    `text` and renders unchanged.
+//
+// 7. Schema: ServiceSchema gained optional `priceOfferLow`/`priceOfferHigh`
+//    props. When given alongside `offers`, it wraps the per-row Offers in
+//    an AggregateOffer carrying the overall lowPrice/highPrice (99-2,500),
+//    instead of a bare Offer array — this page is the first with both an
+//    overall range and a priced row per service. Fed from the same
+//    `pricing.offers`/top-level `priceLow`/`priceHigh` the page renders.
+//
+// 8. ComparisonTable cells now render through Inline (same pattern as
+//    Stepper/FAQ), so the router table's second column can link each row to
+//    that service's page. Plain cells with no link syntax (every other
+//    page's tables, and this page's pricing table) render identically.
+//
+// 9. The animal-removal service card's body links to
+//    /raccoon-in-chimney-fort-worth-tx/, which has no content-collection
+//    entry yet (no .astro page, no .md file). Rendered as given, word for
+//    word, per Hard Rule 1 — this is a pre-existing situation, not
+//    introduced here: chimney-animal-removal-fort-worth-tx,
+//    squirrel-in-chimney-removal-fort-worth-tx, bird-in-chimney-removal, and
+//    the chimney-without-a-cap blog post all already link to the same
+//    not-yet-built URL. Flagged in the build report.
+import { getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustBadges from '../components/TrustBadges.astro';
+import CardGrid from '../components/CardGrid.astro';
+import FramedImage from '../components/FramedImage.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
+import Stepper from '../components/Stepper.astro';
+import CTABand from '../components/CTABand.astro';
+import FAQ from '../components/FAQ.astro';
+import Inline from '../components/Inline.astro';
+import ServiceSchema from '../components/schema/ServiceSchema.astro';
+import FAQSchema from '../components/schema/FAQSchema.astro';
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
+import { getPrice, overallRange, interpolatePrices } from '../lib/prices';
+
+const entry = await getEntry('services', 'chimney-sweep-services');
+if (!entry) throw new Error('Missing services entry: chimney-sweep-services');
+const d = entry.data;
+if (entry.id !== d.slug) {
+  throw new Error(`Service entry "${entry.id}" has frontmatter slug "${d.slug}" — they must match.`);
+}
+
+const canonicalHref = new URL(Astro.url.pathname, Astro.site).href;
+
+const imgRouter = d.images?.router;
+const imgServicesHeader = d.images?.servicesHeader;
+const imgPricing = d.images?.pricing;
+const imgProcess = d.images?.process;
+const imgLocalLeft = d.images?.localLeft;
+const imgLocalRight = d.images?.localRight;
+
+// One Offer per pricing-table row, derived from the same id list that
+// substitutes each row's displayed price — the hand-typed numeric `offers`
+// array this replaced could drift from the table text it was meant to match.
+const rowOffers = d.pricing?.rowPriceIds?.map((id) => {
+  const p = getPrice(id);
+  return { minPrice: p.min as number, ...(p.max != null ? { maxPrice: p.max } : {}) };
+});
+const { min: overallMin, max: overallMax } = overallRange();
+---
+
+<BaseLayout title={d.titleTag ?? d.title} description={d.metaDescription} ogImage={d.ogImage} ogType="website">
+  <Fragment slot="head">
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+  </Fragment>
+
+  {d.serviceType && rowOffers && rowOffers.length > 0 && (
+    <ServiceSchema
+      name={d.title}
+      description={d.metaDescription}
+      serviceType={d.serviceType}
+      areaServed={d.areaServed ?? []}
+      offers={rowOffers}
+      priceOfferLow={overallMin}
+      priceOfferHigh={overallMax}
+      url={canonicalHref}
+    />
+  )}
+  {d.faqs && d.faqs.length > 0 && <FAQSchema items={d.faqs} />}
+  <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: d.title }]} />
+
+  <!-- 1. Hero -->
+  <Hero
+    headline={d.title}
+    subhead={d.subheading ?? ''}
+    ctaLabel="Call"
+    ctaId="hero"
+    showSecondaryCta={false}
+    normalCaseH1
+    ctaLine="to book a service or to describe what you are noticing."
+    imageSrc={d.heroImage?.src}
+    imageAlt={d.heroImage?.alt ?? ''}
+  />
+  <TrustBadges />
+
+  <!-- 2. Router (replaces Problems on this page) -->
+  {d.router && (
+    <section class="section bg-white">
+      <div class="container-page">
+        <h2 class="section-title">{d.router.heading}</h2>
+        <span class="rule"></span>
+        <p class="reveal max-w-[65ch] text-lg leading-relaxed">{d.router.opening}</p>
+        <div class="mt-8 grid gap-10 md:grid-cols-[3fr_2fr] md:items-start">
+          <ComparisonTable head={d.router.tableHead} rows={d.router.tableRows} />
+          {imgRouter && <FramedImage src={imgRouter.src} alt={imgRouter.alt} caption={imgRouter.caption} ratio="4:3" />}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- 3. Services grid, 8 cards -->
+  {d.solutions && (
+    <section class="section bg-cream">
+      <div class="container-page">
+        <h2 class="section-title">{d.solutions.heading}</h2>
+        <span class="rule"></span>
+        <p class="reveal max-w-[65ch] text-lg leading-relaxed">{d.solutions.opening}</p>
+        {imgServicesHeader && (
+          <div class="mt-8">
+            <FramedImage src={imgServicesHeader.src} alt={imgServicesHeader.alt} caption={imgServicesHeader.caption} ratio="16:9" />
+          </div>
+        )}
+        <div class="mt-8">
+          <CardGrid items={d.solutions.items} columns={4} />
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- 4. Pricing table, then the headingless urgency block -->
+  {d.pricing && (
+    <section class="section bg-white">
+      <div class="container-page">
+        <h2 class="section-title">{d.pricing.heading}</h2>
+        <span class="rule"></span>
+        <p class="reveal max-w-[65ch] text-lg leading-relaxed">{interpolatePrices(d.pricing.opening)}</p>
+
+        {d.pricing.tableHead && d.pricing.tableRows && (
+          <div class="mt-8">
+            <ComparisonTable head={d.pricing.tableHead} rows={d.pricing.tableRows} />
+          </div>
+        )}
+
+        <div class="mt-8 grid gap-10 md:grid-cols-[3fr_2fr] md:items-start">
+          <div class="space-y-4">
+            {d.pricing.note && <p class="reveal max-w-[65ch] text-muted">{d.pricing.note}</p>}
+            {d.pricing.closingLine && <p class="reveal max-w-[65ch] font-semibold">{d.pricing.closingLine}</p>}
+          </div>
+          {imgPricing && <FramedImage src={imgPricing.src} alt={imgPricing.alt} caption={imgPricing.caption} ratio="4:3" />}
+        </div>
+
+        {d.pricing.urgency && d.pricing.urgency.length > 0 && (
+          <div class="mt-12 border-t border-line pt-10">
+            {d.pricing.urgencyLabel && (
+              <p class="reveal text-sm font-extrabold uppercase tracking-wide text-muted">{d.pricing.urgencyLabel}</p>
+            )}
+            <div class="mt-4 max-w-3xl">
+              <CardGrid items={d.pricing.urgency} columns={d.pricing.urgency.length === 3 ? 3 : 2} />
+            </div>
+            {d.pricing.waitingCostsNote && <p class="reveal mt-8 max-w-[65ch] text-muted">{d.pricing.waitingCostsNote}</p>}
+            {d.pricing.diyNote && <p class="reveal mt-4 max-w-[65ch] text-muted">{d.pricing.diyNote}</p>}
+            {d.pricing.insuranceNote && <p class="reveal mt-4 max-w-[65ch] text-muted">{d.pricing.insuranceNote}</p>}
+          </div>
+        )}
+      </div>
+    </section>
+  )}
+
+  <!-- 5. Mid-page CTA -->
+  {d.midCta && <CTABand ctaId="mid" heading={d.midCta.headline} text={d.midCta.text} />}
+
+  <!-- 6. Process -->
+  {d.process && d.steps && d.steps.length > 0 && (
+    <section class="section bg-cream">
+      <div class="container-page">
+        <h2 class="section-title">{d.process.heading}</h2>
+        <span class="rule"></span>
+        <div class="mt-8 grid gap-10 md:grid-cols-[1.2fr_1fr] md:items-start">
+          {imgProcess && (
+            <div class="order-1 md:order-2 md:sticky md:top-24">
+              <FramedImage src={imgProcess.src} alt={imgProcess.alt} caption={imgProcess.caption} ratio="4:3" />
+            </div>
+          )}
+          <div class="order-2 md:order-1">
+            <Stepper steps={d.steps} tone="light" />
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- 7. Local (no H3 blocks) -->
+  {d.local && (
+    <section class="section bg-white">
+      <div class="container-page">
+        <h2 class="section-title">{d.local.heading}</h2>
+        <span class="rule"></span>
+        {d.local.opening && <p class="reveal max-w-[65ch] text-lg leading-relaxed">{d.local.opening}</p>}
+
+        {d.local.paragraphs && d.local.paragraphs.length > 0 && (
+          <div class="reveal mt-6 max-w-[65ch] space-y-4 text-muted">
+            {d.local.paragraphs.map((p) => (
+              <p>
+                <Inline text={p} />
+              </p>
+            ))}
+          </div>
+        )}
+
+        <div class="reveal mt-8 max-w-[65ch] space-y-2 border-t border-line pt-6">
+          <p>
+            <Inline text={d.local.serviceAreaLine} />
+          </p>
+          <p>{d.local.nap}</p>
+        </div>
+
+        {(imgLocalLeft || imgLocalRight) && (
+          <div class="mt-10 grid gap-6 sm:grid-cols-2">
+            {imgLocalLeft && <FramedImage src={imgLocalLeft.src} alt={imgLocalLeft.alt} caption={imgLocalLeft.caption} ratio="4:3" />}
+            {imgLocalRight && <FramedImage src={imgLocalRight.src} alt={imgLocalRight.alt} caption={imgLocalRight.caption} ratio="4:3" />}
+          </div>
+        )}
+      </div>
+    </section>
+  )}
+
+  <!-- 8. FAQ -->
+  {d.faqs && d.faqs.length > 0 && <FAQ heading={d.faqHeading} items={d.faqs} bg="cream" />}
+
+  <!-- 9. Closing CTA, laid out like the Hero CTA -->
+  {d.closingCta && (
+    <CTABand ctaId="closing" heading={d.closingCta.headline} ctaLine={d.closingCta.text} brickPattern />
+  )}
+</BaseLayout>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  if (reveals.length) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' },
+    );
+    reveals.forEach((el) => io.observe(el));
+  }
+</script>

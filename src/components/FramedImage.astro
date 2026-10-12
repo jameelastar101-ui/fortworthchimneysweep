@@ -1,0 +1,65 @@
+---
+// A framed image card with a small red offset accent (design direction:
+// "Rugged Tradesman"). Reads a plain public/ path rather than an astro:assets
+// import, since service-page images are supplied later by the client and may
+// not exist yet — see docs on the dryer-vent-cleaning build.
+//
+// Missing file: dev shows a neutral placeholder box at the right aspect
+// ratio, naming the missing filename. Production renders nothing rather than
+// ship a placeholder.
+// Missing/TODO alt text: dev warns, `astro build` (PROD) fails.
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+
+interface Props {
+  src: string; // public/ path, e.g. /images/dryer-vent/foo.webp
+  alt: string;
+  caption?: string;
+  ratio?: '16:9' | '4:3';
+  eager?: boolean; // hero images only; every other image lazy-loads
+  class?: string;
+}
+const { src, alt, caption, ratio = '4:3', eager = false, class: className } = Astro.props;
+
+const exists = existsSync(join(process.cwd(), 'public', src));
+const ratioClass = ratio === '16:9' ? 'aspect-video' : 'aspect-[4/3]';
+const [w, h] = ratio === '16:9' ? [1200, 675] : [1200, 900];
+
+if (!alt || alt.trim() === '' || alt.trim().toUpperCase() === 'TODO') {
+  const msg = `Image "${src}" is missing real alt text (got "${alt}").`;
+  if (import.meta.env.PROD) throw new Error(msg);
+  console.warn(`⚠ ${msg}`);
+}
+if (!exists) {
+  const msg = `Image file not found: public${src}`;
+  if (import.meta.env.DEV) console.warn(`⚠ ${msg} — showing a dev-only placeholder.`);
+  else console.warn(`⚠ ${msg} — omitting from the built page.`);
+}
+---
+
+{
+  (exists || import.meta.env.DEV) && (
+    <figure class:list={['relative', className]}>
+      <span class="absolute -bottom-3 -right-3 z-0 h-full w-full bg-brand" aria-hidden="true" />
+      <div class:list={['relative z-10 overflow-hidden border-2 border-ink bg-cream', ratioClass]}>
+        {exists ? (
+          <img
+            src={src}
+            alt={alt}
+            width={w}
+            height={h}
+            loading={eager ? 'eager' : 'lazy'}
+            decoding="async"
+            class="size-full object-cover"
+          />
+        ) : (
+          <div class="flex size-full flex-col items-center justify-center gap-1 border-4 border-dashed border-muted/40 p-4 text-center">
+            <span class="font-mono text-xs text-muted">Missing image</span>
+            <span class="font-mono text-xs font-bold text-muted">{src}</span>
+          </div>
+        )}
+      </div>
+      {caption && <figcaption class="relative z-10 mt-3 text-sm text-muted">{caption}</figcaption>}
+    </figure>
+  )
+}

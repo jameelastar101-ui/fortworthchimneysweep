@@ -155,7 +155,7 @@ Weak airflow at the hood? Chimney Sweep Pro can find and clear the blockage. Cal
 
 Dryer vents clog because lint escapes the screen and collects in the duct. The screen catches some lint on each cycle, not all of it.
 
-- **Bends and long runs.** Lint clings to duct walls at every bend, and long runs give it more surface to settle on. Attic routes and multiple 90-degree bends make airflow problems harder to clear.
+- **Bends and long runs.** Lint clings to duct walls at every bend, and long runs give it more surface to settle on. Attic routes and multiple 90-degree bends make airflow problems harder to clear. See [dryer vent length and routing](/dryer-vent-length-and-routing/) for the 35-foot limit and how bends count against it.
 - **Unsuitable duct material.** Some duct materials trap lint. Dryer manufacturers recommend rigid or semi-rigid metal duct.
 - **Crushed or kinked duct.** A duct squeezed behind the dryer or inside a wall narrows the airflow path. Lint builds up at the narrow point.
 - **Nests and debris.** Birds and rodents can nest in the exterior vent, and leaves can block the hood.

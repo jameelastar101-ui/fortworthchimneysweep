@@ -12,10 +12,20 @@
   --color-brand-dark: #b01f1f; /* hover / pressed */
   --color-ink: #111111;
   --color-paper: #ffffff;
-  --color-cream: #f7f5f2;
+  /* Alternating section band color. Was an off-white (#f7f5f2) — flattened to
+     pure white for higher contrast; bands now separate from each other via
+     the `.section.bg-cream` top border below instead of a color difference.
+     Kept as its own token (rather than merged into --color-paper) so a
+     future section band can still be restyled sitewide in one place. */
+  --color-cream: #ffffff;
   --color-charcoal: #1c1c1e;
   --color-muted: #55534f;
   --color-line: #e2dfda;
+  /* Urgency-level semantic colors (decision-framework modules, reused across
+     service pages: "stop now / book soon / can wait"). --color-brand covers
+     "stop now" already. */
+  --color-warn: #b45309;
+  --color-ok: #15803d;
 
   --font-display: 'Anton', 'Archivo Black', Impact, sans-serif;
   --font-body: 'Inter Variable', 'Inter', system-ui, sans-serif;
@@ -67,6 +77,15 @@
       padding-block: 5.5rem;
     }
   }
+  /* bg-cream sections are now the same white as bg-white sections (see the
+     --color-cream token above) — this top border keeps the alternating-band
+     seam visible without a color difference. Scoped to `.section.bg-cream`
+     specifically (not bare `.bg-cream`) so it never touches the token's
+     other, non-section uses (callouts, table striping, image placeholders,
+     a dropdown hover state) that still legitimately want a flat background. */
+  .section.bg-cream {
+    border-top: 1px solid var(--color-line);
+  }
   .section-title {
     font-size: clamp(2rem, 4.5vw, 3rem);
   }
@@ -101,9 +120,18 @@
     transition:
       background-color 0.15s,
       color 0.15s,
-      border-color 0.15s;
+      border-color 0.15s,
+      transform 0.15s;
     cursor: pointer;
     text-align: center;
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .btn:hover {
+      transform: none;
+    }
   }
   .btn-primary {
     background: var(--color-brand);
@@ -126,5 +154,102 @@
   .btn-outline:hover {
     background: #fff;
     color: var(--color-ink);
+  }
+
+  /* Blog post body content (BlogPostLayout.astro). No typography plugin is
+     installed, so this is hand-rolled against the same tokens as everything
+     else rather than an off-the-shelf `prose` class. */
+  .article-body {
+    margin-top: 2.5rem;
+  }
+  .article-body > * + * {
+    margin-top: 1.25rem;
+  }
+  .article-body h2 {
+    margin-top: 2.5rem;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+  }
+  .article-body h3 {
+    margin-top: 2rem;
+    font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+  }
+  .article-body p,
+  .article-body li {
+    line-height: 1.7;
+  }
+  .article-body a {
+    color: var(--color-brand);
+    font-weight: 700;
+    text-underline-offset: 2px;
+  }
+  .article-body a:hover {
+    color: var(--color-brand-dark);
+  }
+  .article-body ul {
+    padding-left: 1.5rem;
+    list-style: disc;
+  }
+  .article-body ol {
+    padding-left: 1.5rem;
+    list-style: decimal;
+  }
+  .article-body li + li {
+    margin-top: 0.4rem;
+  }
+  .article-body img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-card);
+  }
+  .article-body figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+  /* `display: block` + `overflow-x: auto` lets a wide table scroll on small
+     screens without JS (SEO checklist Section 10). */
+  .article-body table {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+  }
+  .article-body th,
+  .article-body td {
+    border: 1px solid var(--color-line);
+    padding: 0.6rem 0.85rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  .article-body th {
+    /* Deliberately not --color-cream: that token is white now (section
+       bands), which would erase this header shading entirely. */
+    background: var(--color-line);
+    font-weight: 800;
+  }
+
+  /* Scroll-reveal animation (service page modules). Progressive enhancement:
+     content is visible by default; the hidden start state only applies once
+     <html> carries "js" (set by an inline script), so nothing shifts without
+     JS and everything stays crawlable. Opacity/transform only. */
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  .js .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+      opacity 450ms ease-out,
+      transform 450ms ease-out;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .js .reveal,
+    .js .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
   }
 }

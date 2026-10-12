@@ -1,0 +1,40 @@
+---
+// Article schema for blog posts (SEO checklist Section 9). Every field is pulled
+// from the calling layout's props, which in turn come straight from the post's
+// own frontmatter — nothing here is hand-typed separately from the visible page.
+import { getImage } from 'astro:assets';
+import logo from '../../assets/logo.webp';
+import { site } from '../../data/site';
+
+interface Props {
+  headline: string;
+  description: string;
+  datePublished?: string; // ISO 8601 — omitted entirely for posts with no publish date
+  dateModified?: string; // ISO 8601
+  url: string; // full canonical URL of the post
+  image?: string; // full URL of the og:image, if one exists
+}
+
+const { headline, description, datePublished, dateModified, url, image } = Astro.props;
+const logoUrl = new URL((await getImage({ src: logo })).src, site.url).href;
+
+// Author and publisher are always the business — never an invented person.
+const data = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline,
+  description,
+  mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+  author: { '@type': 'Organization', name: site.name, url: `${site.url}/` },
+  publisher: {
+    '@type': 'Organization',
+    name: site.name,
+    logo: { '@type': 'ImageObject', url: logoUrl },
+  },
+  ...(datePublished ? { datePublished } : {}),
+  ...(dateModified ? { dateModified } : {}),
+  ...(image ? { image: [image] } : {}),
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(data)} />

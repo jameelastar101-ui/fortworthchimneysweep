@@ -1,0 +1,252 @@
+[
+  {
+    "id": "sweep-standard",
+    "service": "chimney-sweep",
+    "label": "Standard Sweep",
+    "min": 150,
+    "max": 300,
+    "openEnded": false,
+    "minIsStated": true,
+    "display": "$150-$300"
+  },
+  {
+    "id": "sweep-level2",
+    "service": "chimney-sweep",
+    "label": "Sweep With Level 2 Video Inspection",
+    "min": 250,
+    "max": 350,
+    "openEnded": false,
+    "minIsStated": true,
+    "display": "$250-$350"
+  },
+  {
+    "id": "inspection-level1-included",
+    "service": "chimney-inspection",
+    "label": "Level 1 (with a sweep)",
+    "min": null,
+    "max": null,
+    "openEnded": false,
+    "minIsStated": false,
+    "display": "Included"
+  },
+  {
+    "id": "inspection-level1-standalone",
+    "service": "chimney-inspection",
+    "label": "Level 1 (standalone)",
+    "min": 125,
+    "max": 150,
+    "openEnded": false,
+    "minIsStated": true,
+    "display": "$125-$150"
+  },
+  {
+    "id": "inspection-level2",
+    "service": "chimney-inspection",
+    "label": "Level 2",
+    "min": 200,
+    "max": 350,
+    "openEnded": false,
+    "minIsStated": true,
+    "display": "$200-$350"
+  },
+  {
+    "id": "inspection-standalone-overall",
+    "service": "chimney-inspection",
+    "label": "Chimney inspection, standalone (overall)",
+    "min": 125,
+    "max": 350,
+    "openEnded": false,
+    "minIsStated": true,
+    "display": "$125-$350"
+  },
+  {
+    "id": "repair-minor-masonry",
+    "service": "chimney-repair",
+    "label": "Minor Masonry",
+    "min": 150,
+    "max": 400,
+    "openEnded": false,
+    "minIsStated": true,
+    "display": "$150-$400"
+  },
+  {
+    "id": "repair-crown-flashing",
+    "service": "chimney-repair",
+    "label": "Crown or Flashing Repair",
+    "min": 300,
+    "max": 1200,
+    "openEnded": false,
+    "minIsStated": true,
+    "display": "$300-$1,200"
+  },
+  {
+    "id": "repair-firebox-rebuild",
+    "service": "chimney-repair",
+    "label": "Firebox Rebuild",
+    "min": 800,
+    "max": 2500,
+    "openEnded": false,
+    "minIsStated": true,
+    "display": "$800-$2,500"
+  },
+  {
+    "id": "relining",
+    "service": "chimney-relining",
+    "label": "Chimney Relining",
+    "min": 950,
+    "max": 2500,
+    "openEnded": false,
+    "minIsStated": true,
+    "display": "$950-$2,500"
+  },
+  {
+    "id": "repair-overall",
+    "service": "chimney-repair",
+    "label": "Chimney repair (overall)",
+    "min": 150,
+    "max": 2500,
+    "openEnded": false,
+    "minIsStated": true,
+    "display": "$150-$2,500"
+  },
+  {
+    "id": "leak-repair-flashing-crown",
+    "service": "chimney-leak-repair",
+    "label": "Flashing or Crown-Level Leak",
+    "min": 300,
+    "max": 1200,
+    "openEnded": false,
+    "minIsStated": true,
+    "display": "$300-$1,200"
+  },
+  {
+    "id": "leak-repair-masonry-structural",
+    "service": "chimney-leak-repair",
+    "label": "Masonry or Structural Leak",
+    "min": null,
+    "max": 2500,
+    "openEnded": false,
+    "minIsStated": false,
+    "display": "Up to $2,500"
+  },
+  {
+    "id": "leak-repair-overall",
+    "service": "chimney-leak-repair",
+    "label": "Chimney leak repair (overall)",
+    "min": 300,
+    "max": 2500,
+    "openEnded": false,
+    "minIsStated": true,
+    "display": "$300-$2,500"
+  },
+  {
+    "id": "cap-only",
+    "service": "chimney-cap-installation",
+    "label": "Cap Only",
+    "min": 125,
+    "max": 275,
+    "openEnded": false,
+    "minIsStated": true,
+    "display": "$125-$275"
+  },
+  {
+    "id": "cap-full-install",
+    "service": "chimney-cap-installation",
+    "label": "Full Installation",
+    "min": 350,
+    "max": 600,
+    "openEnded": false,
+    "minIsStated": true,
+    "display": "$350-$600"
+  },
+  {
+    "id": "cap-overall",
+    "service": "chimney-cap-installation",
+    "label": "Chimney cap installation (overall)",
+    "min": 125,
+    "max": 600,
+    "openEnded": false,
+    "minIsStated": true,
+    "display": "$125-$600"
+  },
+  {
+    "id": "animal-removal-simple",
+    "service": "chimney-animal-removal",
+    "label": "Simple Removal",
+    "min": 290,
+    "max": 365,
+    "openEnded": false,
+    "minIsStated": true,
+    "display": "$290-$365"
+  },
+  {
+    "id": "animal-removal-hard",
+    "service": "chimney-animal-removal",
+    "label": "Hard Removal",
+    "min": 500,
+    "max": null,
+    "openEnded": true,
+    "minIsStated": true,
+    "display": "$500-$600+"
+  },
+  {
+    "id": "flue-cleaning-sanitizing",
+    "service": "chimney-animal-removal",
+    "label": "Flue Cleaning and Sanitizing",
+    "min": 150,
+    "max": 300,
+    "openEnded": false,
+    "minIsStated": true,
+    "display": "$150-$300"
+  },
+  {
+    "id": "animal-removal-overall",
+    "service": "chimney-animal-removal",
+    "label": "Chimney animal removal (overall)",
+    "min": 290,
+    "max": null,
+    "openEnded": true,
+    "minIsStated": true,
+    "display": "$290-$600+"
+  },
+  {
+    "id": "dryer-simple",
+    "service": "dryer-vent-cleaning",
+    "label": "Simple",
+    "min": 99,
+    "max": 99,
+    "openEnded": false,
+    "minIsStated": true,
+    "display": "$99"
+  },
+  {
+    "id": "dryer-standard",
+    "service": "dryer-vent-cleaning",
+    "label": "Standard",
+    "min": 110,
+    "max": 140,
+    "openEnded": false,
+    "minIsStated": true,
+    "display": "$110-$140"
+  },
+  {
+    "id": "dryer-complex",
+    "service": "dryer-vent-cleaning",
+    "label": "Complex",
+    "min": null,
+    "max": 350,
+    "openEnded": false,
+    "minIsStated": false,
+    "display": "Up to $350"
+  },
+  {
+    "id": "dryer-overall",
+    "service": "dryer-vent-cleaning",
+    "label": "Dryer vent cleaning (overall)",
+    "min": 99,
+    "max": 350,
+    "openEnded": false,
+    "minIsStated": true,
+    "display": "$99-$350"
+  }
+]

@@ -13,6 +13,27 @@ export const site = {
   },
   // Not provided yet — the footer omits hours until this is filled in.
   hours: [] as string[],
+  // Sitewide og:image fallback for any page that has no page-specific one
+  // (home, blog category/pagination pages, and blog posts with no ogImage
+  // in frontmatter — see content.config.ts's blog `ogImage` comment).
+  defaultOgImage: '/images/chimney-sweep/chimney-sweep-fort-worth-hero.webp',
+  // Full service area, sitewide — the single list LocalBusinessSchema's
+  // areaServed and the homepage/contact-us ServiceAreas section both read
+  // from, so they can't drift apart. An individual service page's own
+  // areaServed (ServiceSchema) may still be a narrower subset of this.
+  areaServed: [
+    'Fort Worth',
+    'Keller',
+    'Mansfield',
+    'Southlake',
+    'Arlington',
+    'Benbrook',
+    'North Richland Hills',
+    'Burleson',
+    'Haltom City',
+    'Saginaw',
+    'Weatherford',
+  ],
 };
 
 // Link labels are the page names from the URL inventory; slugs must match it exactly.

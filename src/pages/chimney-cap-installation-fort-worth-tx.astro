@@ -1,0 +1,286 @@
+---
+// Chimney Cap Installation service page — built from the dryer-vent-cleaning
+// template. A standalone route (not the shared [slug].astro) so this build
+// touches no other page or slug. Content collection entry is the single
+// source of truth: every visible string is read from its frontmatter, not
+// typed here.
+//
+// This page's Decision Framework section has three sub-topics (material,
+// mesh size, cap style) instead of dryer vent's one, so it adds three
+// optional fields to the shared `decision` schema (tableNote,
+// extraCardSections, waitingCostsNote) and renders them here between the
+// table and the urgency cards — see content.config.ts for the field
+// comments. The Pricing section has 2 tiers instead of 3; PricingCards.astro
+// sizes its grid off tiers.length so no separate prop was needed.
+import { getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustBadges from '../components/TrustBadges.astro';
+import CardGrid from '../components/CardGrid.astro';
+import FramedImage from '../components/FramedImage.astro';
+import PricingCards from '../components/PricingCards.astro';
+import IncludedPanels from '../components/IncludedPanels.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
+import Stepper from '../components/Stepper.astro';
+import CTABand from '../components/CTABand.astro';
+import FAQ from '../components/FAQ.astro';
+import Inline from '../components/Inline.astro';
+import ServiceSchema from '../components/schema/ServiceSchema.astro';
+import FAQSchema from '../components/schema/FAQSchema.astro';
+import BreadcrumbSchema from '../components/schema/BreadcrumbSchema.astro';
+import { resolveTiers, priceRange, interpolatePrices } from '../lib/prices';
+
+const entry = await getEntry('services', 'chimney-cap-installation-fort-worth-tx');
+if (!entry) throw new Error('Missing services entry: chimney-cap-installation-fort-worth-tx');
+const d = entry.data;
+if (entry.id !== d.slug) {
+  throw new Error(`Service entry "${entry.id}" has frontmatter slug "${d.slug}" — they must match.`);
+}
+
+const canonicalHref = new URL(Astro.url.pathname, Astro.site).href;
+
+const imgProblems = d.images?.problems;
+const imgSolutions = d.images?.solutions;
+const imgProcess = d.images?.process;
+const imgLocal = d.images?.local;
+const imgDecision = d.images?.decision;
+
+const localBlock0 = d.local?.blocks?.[0];
+const localBlock1 = d.local?.blocks?.[1];
+const localImageBlockIndex = d.local?.imageBlockIndex;
+
+const pricingTiers = d.pricing?.tiers && resolveTiers(d.pricing.tiers);
+const priceRangeData = d.priceRangeId ? priceRange(d.priceRangeId) : undefined;
+---
+
+<BaseLayout title={d.titleTag ?? d.title} description={d.metaDescription} ogImage={d.ogImage} ogType="website">
+  <Fragment slot="head">
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
+  </Fragment>
+
+  {d.serviceType && priceRangeData && (
+    <ServiceSchema
+      name={d.title}
+      description={d.metaDescription}
+      serviceType={d.serviceType}
+      areaServed={d.areaServed ?? []}
+      priceLow={priceRangeData.min}
+      priceHigh={priceRangeData.max}
+      url={canonicalHref}
+    />
+  )}
+  {d.faqs && d.faqs.length > 0 && <FAQSchema items={d.faqs} />}
+  <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: d.title }]} />
+
+  <!-- 2. Hero -->
+  <Hero
+    headline={d.title}
+    subhead={d.subheading ?? ''}
+    ctaLabel="Call"
+    ctaId="hero"
+    showSecondaryCta={false}
+    normalCaseH1
+    ctaLine="to schedule a cap installation with a full crown and flue assessment included."
+    imageSrc={d.heroImage?.src}
+    imageAlt={d.heroImage?.alt ?? ''}
+  />
+  <TrustBadges />
+
+  <!-- 3. Problems -->
+  {d.problems && (
+    <section class="section bg-white">
+      <div class="container-page">
+        <h2 class="section-title">{d.problems.heading}</h2>
+        <span class="rule"></span>
+        <p class="reveal max-w-[65ch] text-lg leading-relaxed">{d.problems.opening}</p>
+        <div class="mt-8 grid gap-10 md:grid-cols-[3fr_2fr] md:items-start">
+          <CardGrid items={d.problems.items} columns={2} />
+          {imgProblems && <FramedImage src={imgProblems.src} alt={imgProblems.alt} caption={imgProblems.caption} ratio="4:3" />}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- 4. Solutions -->
+  {d.solutions && (
+    <section class="section bg-cream">
+      <div class="container-page">
+        <h2 class="section-title">{d.solutions.heading}</h2>
+        <span class="rule"></span>
+        <p class="reveal max-w-[65ch] text-lg leading-relaxed">{d.solutions.opening}</p>
+        {d.solutions.imageSide !== 'none' && imgSolutions ? (
+          <div class="mt-8 grid gap-10 md:grid-cols-[2fr_3fr] md:items-start">
+            {d.solutions.imageSide === 'left' && (
+              <FramedImage src={imgSolutions.src} alt={imgSolutions.alt} caption={imgSolutions.caption} ratio="4:3" />
+            )}
+            <div>
+              <CardGrid items={d.solutions.items} columns={2} />
+            </div>
+            {d.solutions.imageSide === 'right' && (
+              <FramedImage src={imgSolutions.src} alt={imgSolutions.alt} caption={imgSolutions.caption} ratio="4:3" />
+            )}
+          </div>
+        ) : (
+          <div class="mt-8">
+            <CardGrid items={d.solutions.items} columns={2} />
+          </div>
+        )}
+      </div>
+    </section>
+  )}
+
+  <!-- 5. Pricing -->
+  {d.pricing && (
+    <section class="section bg-white">
+      <div class="container-page">
+        <h2 class="section-title">{d.pricing.heading}</h2>
+        <span class="rule"></span>
+        <p class="reveal max-w-[65ch] text-lg leading-relaxed">{interpolatePrices(d.pricing.opening)}</p>
+        <div class="mt-8">
+          <PricingCards tiers={pricingTiers!} />
+        </div>
+        <div class="mt-10">
+          <IncludedPanels
+            includedHeading={d.pricing.includedHeading}
+            included={d.pricing.included}
+            notIncludedHeading={d.pricing.notIncludedHeading}
+            notIncluded={d.pricing.notIncluded}
+          />
+        </div>
+        <p class="reveal mt-8 max-w-[65ch] font-semibold">{d.pricing.closingLine}</p>
+      </div>
+    </section>
+  )}
+
+  <!-- 6. Decision framework -->
+  {d.decision && (
+    <section class="section border-t border-line bg-white">
+      <div class="container-page">
+        <h2 class="section-title">{d.decision.heading}</h2>
+        <span class="rule"></span>
+        <p class="reveal max-w-[65ch] text-lg leading-relaxed">{d.decision.opening}</p>
+
+        {imgDecision ? (
+          <div class="mt-8 grid gap-10 md:grid-cols-[3fr_2fr] md:items-start">
+            <ComparisonTable head={d.decision.tableHead} rows={d.decision.tableRows} />
+            <FramedImage src={imgDecision.src} alt={imgDecision.alt} caption={imgDecision.caption} ratio="4:3" />
+          </div>
+        ) : (
+          <div class="mt-8">
+            <ComparisonTable head={d.decision.tableHead} rows={d.decision.tableRows} />
+          </div>
+        )}
+        {d.decision.tableNote && <p class="reveal mt-6 max-w-[65ch] text-muted">{d.decision.tableNote}</p>}
+
+        {d.decision.extraCardSections?.map((group) => (
+          <div class="mt-10 max-w-3xl">
+            <CardGrid items={group} columns={2} />
+          </div>
+        ))}
+
+        {d.decision.waitingCostsNote && <p class="reveal mt-8 max-w-[65ch] text-muted">{d.decision.waitingCostsNote}</p>}
+
+        <div class="mt-10 max-w-3xl">
+          <CardGrid items={d.decision.urgency} columns={d.decision.urgency.length === 3 ? 3 : 2} />
+        </div>
+        {d.decision.diyVsPro && (
+          <div class="mt-10 max-w-3xl">
+            <CardGrid items={d.decision.diyVsPro} columns={2} />
+          </div>
+        )}
+        <p class="reveal mt-8 max-w-[65ch] text-muted">{d.decision.insuranceNote}</p>
+      </div>
+    </section>
+  )}
+
+  <!-- 7. Mid-page CTA -->
+  {d.midCta && <CTABand ctaId="mid" heading={d.midCta.headline} text={d.midCta.text} />}
+
+  <!-- 8. Process -->
+  {d.process && d.steps && d.steps.length > 0 && (
+    <section class="section bg-cream">
+      <div class="container-page">
+        <h2 class="section-title">{d.process.heading}</h2>
+        <span class="rule"></span>
+        <div class="mt-8 grid gap-10 md:grid-cols-[1.2fr_1fr] md:items-start">
+          {imgProcess && (
+            <div class="order-1 md:order-2 md:sticky md:top-24">
+              <FramedImage src={imgProcess.src} alt={imgProcess.alt} caption={imgProcess.caption} ratio="4:3" />
+            </div>
+          )}
+          <div class="order-2 md:order-1">
+            <Stepper steps={d.steps} tone="light" />
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- 9. Local -->
+  {d.local && (
+    <section class="section bg-white">
+      <div class="container-page">
+        <h2 class="section-title">{d.local.heading}</h2>
+        <span class="rule"></span>
+        <p class="reveal max-w-[65ch] text-lg leading-relaxed">{d.local.opening}</p>
+
+        {localBlock0 && (
+          <div class="reveal mt-8 max-w-[65ch]">
+            <h3 class="text-xl">{localBlock0.heading}</h3>
+            <p class="mt-2 text-muted">{localBlock0.body}</p>
+          </div>
+        )}
+
+        {localBlock1 && (
+          <div class="mt-8 grid gap-8 md:grid-cols-[1.3fr_1fr] md:items-start">
+            <div class="reveal">
+              <h3 class="text-xl">{localBlock1.heading}</h3>
+              <p class="mt-2 text-muted">{localBlock1.body}</p>
+            </div>
+            {localImageBlockIndex === 1 && imgLocal && (
+              <FramedImage src={imgLocal.src} alt={imgLocal.alt} caption={imgLocal.caption} ratio="4:3" class="md:justify-self-end" />
+            )}
+          </div>
+        )}
+
+        <div class="reveal mt-10 max-w-[65ch] space-y-2 border-t border-line pt-6">
+          <p>{d.local.serviceAreaLine}</p>
+          <p>{d.local.nap}</p>
+          {d.local.crossLinkLine && (
+            <p>
+              <Inline text={d.local.crossLinkLine} />
+            </p>
+          )}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- 10. FAQ -->
+  {d.faqs && d.faqs.length > 0 && <FAQ heading={d.faqHeading} items={d.faqs} bg="cream" />}
+
+  <!-- 11. Closing CTA -->
+  {d.closingCta && (
+    <CTABand ctaId="closing" heading={d.closingCta.headline} text={d.closingCta.text} brickPattern />
+  )}
+</BaseLayout>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  if (reveals.length) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' },
+    );
+    reveals.forEach((el) => io.observe(el));
+  }
+</script>

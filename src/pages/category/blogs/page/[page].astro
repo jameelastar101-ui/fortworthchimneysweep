@@ -1,0 +1,50 @@
+---
+// Blog category index, pages 2+. Generates /category/blogs/page/2/,
+// /category/blogs/page/3/, etc. — see ../index.astro for page 1 and why this
+// doesn't use Astro's default paginate() URL scheme.
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import BreadcrumbSchema from '../../../../components/schema/BreadcrumbSchema.astro';
+import BlogCardGrid from '../../../../components/BlogCardGrid.astro';
+import BlogPagination from '../../../../components/BlogPagination.astro';
+import { getBlogPostsSorted, BLOG_PAGE_SIZE } from '../../../../lib/blog-list';
+
+export async function getStaticPaths() {
+  const posts = await getBlogPostsSorted();
+  const totalPages = Math.max(1, Math.ceil(posts.length / BLOG_PAGE_SIZE));
+
+  return Array.from({ length: Math.max(0, totalPages - 1) }, (_, i) => {
+    const pageNum = i + 2;
+    return {
+      params: { page: String(pageNum) },
+      props: {
+        pageItems: posts.slice((pageNum - 1) * BLOG_PAGE_SIZE, pageNum * BLOG_PAGE_SIZE),
+        pageNum,
+        totalPages,
+      },
+    };
+  });
+}
+
+const { pageItems, pageNum, totalPages } = Astro.props;
+---
+
+<BaseLayout
+  title={`CHIMNEY & DRYER VENT BLOG | PAGE ${pageNum} | CHIMNEY SWEEP PRO`}
+  description={`Page ${pageNum} of chimney and dryer vent guides from Chimney Sweep Pro — leaks, caps, animal removal, inspections, and maintenance for Fort Worth and Tarrant County.`}
+>
+  <BreadcrumbSchema items={[{ name: 'Home', url: '/' }, { name: 'Blog', url: '/category/blogs/' }, { name: `Page ${pageNum}` }]} />
+
+  <section class="section">
+    <div class="container-page">
+      <p class="eyebrow">Chimney Sweep Pro Blog</p>
+      <h1>Chimney and dryer vent guides for Fort Worth homeowners</h1>
+      <span class="rule"></span>
+
+      <div class="mt-8">
+        <BlogCardGrid posts={pageItems} />
+      </div>
+
+      <BlogPagination currentPage={pageNum} totalPages={totalPages} />
+    </div>
+  </section>
+</BaseLayout>

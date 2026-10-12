@@ -1,0 +1,64 @@
+---
+// Pricing tiers as cards (not a table) — equal-width on desktop, stacked on
+// mobile. Prices are never in the scroll-reveal animation.
+//
+// A single tier (one price range, not named tiers — e.g. relining) renders
+// as one centered, wider card instead of a 1-of-3 grid slot, and skips the
+// name heading when no tier name is given.
+//
+// A tier flagged `addOn` (e.g. animal removal's flue cleaning/sanitizing) is
+// priced on top of the other tiers, not an alternative to them, so it's
+// pulled out of the equal-width row into its own smaller, dashed-border card
+// below, joined by a decorative "+" — no added label text, just styling.
+// Pages with no addOn tier render exactly as before.
+interface Props {
+  tiers: { name: string; price: string; subtext: string; addOn?: boolean }[];
+}
+const { tiers } = Astro.props;
+const mainTiers = tiers.filter((t) => !t.addOn);
+const addOnTiers = tiers.filter((t) => t.addOn);
+// 4 tiers (first use: chimney-repair) go 2x2 at sm, a full row of 4 at lg,
+// so the row doesn't cramp before there's room for it.
+const colClass =
+  mainTiers.length === 1
+    ? 'max-w-lg mx-auto'
+    : mainTiers.length === 2
+      ? 'sm:grid-cols-2'
+      : mainTiers.length === 4
+        ? 'sm:grid-cols-2 lg:grid-cols-4'
+        : 'sm:grid-cols-3';
+---
+
+<ul class:list={['grid gap-5', colClass]}>
+  {
+    mainTiers.map((t) => (
+      <li class="rounded-card border-2 border-line bg-white p-6 text-center">
+        {t.name && <h3 class="text-xl">{t.name}</h3>}
+        <p class:list={['font-display text-4xl text-brand', t.name ? 'mt-3' : '']}>{t.price}</p>
+        <p class="mt-2 text-sm text-muted">{t.subtext}</p>
+      </li>
+    ))
+  }
+</ul>
+
+{
+  addOnTiers.length > 0 && (
+    <div class="mt-6 flex flex-col items-center">
+      <span
+        class="flex size-8 items-center justify-center rounded-full border-2 border-line bg-cream font-display text-base text-muted"
+        aria-hidden="true"
+      >
+        +
+      </span>
+      <ul class:list={['mt-6 grid w-full gap-5', addOnTiers.length === 1 ? 'max-w-sm mx-auto' : 'sm:grid-cols-2']}>
+        {addOnTiers.map((t) => (
+          <li class="rounded-card border-2 border-dashed border-line bg-cream p-5 text-center">
+            {t.name && <h3 class="text-lg">{t.name}</h3>}
+            <p class:list={['font-display text-3xl text-brand', t.name ? 'mt-2' : '']}>{t.price}</p>
+            <p class="mt-2 text-sm text-muted">{t.subtext}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}

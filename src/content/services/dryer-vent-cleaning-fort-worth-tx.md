@@ -13,8 +13,7 @@ heroImage:
   src: "/images/dryer-vent/dryer-vent-cleaning-fort-worth-hero.webp"
   alt: "Technician disconnecting the flexible duct from the back of a dryer in a laundry room"
 
-priceLow: 99
-priceHigh: 350
+priceRangeId: "dryer-overall"
 serviceType: "Dryer vent cleaning"
 areaServed: ["Fort Worth", "Saginaw", "Keller"]
 
@@ -69,13 +68,13 @@ pricing:
   opening: "Chimney Sweep Pro prices dryer vent cleaning by three tiers, based on your vent's length, bends, and access."
   tiers:
     - name: "Simple"
-      price: "$99"
+      priceId: "dryer-simple"
       subtext: "Short, straight vent, up to 12 ft, easy exterior access"
     - name: "Standard"
-      price: "$110-$140"
+      priceId: "dryer-standard"
       subtext: "Longer run or harder access, no roof needed"
     - name: "Complex"
-      price: "Up to $350"
+      priceId: "dryer-complex"
       subtext: "Over 15 ft, several bends, stacked units, or roof access"
   includedHeading: "What's Included:"
   included:
@@ -168,7 +167,7 @@ faqs:
   - question: "What does dryer vent cleaning remove that the lint trap misses?"
     answer: "The lint trap catches only part of what your clothes shed. The rest travels through the transition duct and the exhaust duct and settles on the duct walls and at every elbow. Cleaning removes that buildup along the whole run, which emptying the trap never reaches."
   - question: "How much does dryer vent cleaning cost in Fort Worth?"
-    answer: "Dryer vent cleaning costs $99-$350 with Chimney Sweep Pro. A short, straight vent with easy access is $99, longer or harder-to-reach runs are $110-$140, and long vents with several bends, stacked units, or roof access run up to $350. [Call (682) 354-6644](tel:+16823546644) to book."
+    answer: "Dryer vent cleaning costs {{price:dryer-overall}} with Chimney Sweep Pro. A short, straight vent with easy access is {{price:dryer-simple}}, longer or harder-to-reach runs are {{price:dryer-standard}}, and long vents with several bends, stacked units, or roof access run up to $350. [Call (682) 354-6644](tel:+16823546644) to book."
   - question: "Why does a roof exit change the price of dryer vent cleaning in Fort Worth?"
     answer: "A roof exit needs a technician to work on the roof, which adds time and safety steps compared with a side-wall exit reached from the ground. That is why roof access places a vent in the highest price tier, which runs up to $350. The final price is set in writing before cleaning starts."
   - question: "Which cities near Fort Worth do you serve for dryer vent cleaning?"

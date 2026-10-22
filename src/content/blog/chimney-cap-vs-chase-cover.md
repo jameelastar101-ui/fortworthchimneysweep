@@ -12,7 +12,7 @@ hub: chimney-cap-installation-fort-worth-tx
 
 The chimney cap vs chase cover question has a short answer: the cap covers the flue opening, and the chase cover covers the whole top of a framed chimney chase. Fort Worth homes with factory-built fireplaces carry both parts.
 
-Not sure which part is failing on your roof? Chimney Sweep Pro can find out. Call [(682) 354-6644](tel:+16823546644).
+Not sure which part is failing on your roof? Chimney Sweep Pro can find out. Call [(877) 203-8193](tel:+18772038193).
 
 <img
   src="/images/blog/chimney-cap-vs-chase-cover/chimney-cap-vs-chase-cover-summary.webp"
@@ -153,7 +153,7 @@ A stainless cover needs stainless screws, because plain screws rust and stain th
 
 Steel is the standard material on top of a chase. Roofing tar or asphalt sheet sags around the pipe and can drip into the house.
 
-Seeing rust on your siding? Chimney Sweep Pro can tell you which part is failing. Call [(682) 354-6644](tel:+16823546644).
+Seeing rust on your siding? Chimney Sweep Pro can tell you which part is failing. Call [(877) 203-8193](tel:+18772038193).
 
 ## Cap, chase cover, or crown: which part is failing?
 
@@ -240,4 +240,4 @@ Telling the parts apart is a ground-level task. Roof work belongs to a professio
 
 For crown and masonry problems, see our [chimney repair](/chimney-repair-fort-worth-tx/) page.
 
-Chimney Sweep Pro inspects the top of your chimney and handles [chimney cap installation in Fort Worth](/chimney-cap-installation-fort-worth-tx/) and nearby cities such as Keller and Saginaw. Whichever part you suspect, call [(682) 354-6644](tel:+16823546644) and we will work out which one it is.
+Chimney Sweep Pro inspects the top of your chimney and handles [chimney cap installation in Fort Worth](/chimney-cap-installation-fort-worth-tx/) and nearby cities such as Keller and Saginaw. Whichever part you suspect, call [(877) 203-8193](tel:+18772038193) and we will work out which one it is.

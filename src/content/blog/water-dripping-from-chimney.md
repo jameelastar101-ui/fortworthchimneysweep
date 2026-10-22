@@ -22,7 +22,7 @@ Water dripping from a chimney comes from six sources: the cap, the crown, the fl
 
 Protect your home first. Then match your drip to the table below.
 
-Want the entry point found? Chimney Sweep Pro can help. Call [(682) 354-6644](tel:+16823546644).
+Want the entry point found? Chimney Sweep Pro can help. Call [(877) 203-8193](tel:+18772038193).
 
 <img
   src="/images/blog/water-dripping-from-chimney/water-dripping-from-chimney-summary-infographic.webp"
@@ -161,7 +161,7 @@ The timing of the drip gives hints. These are general patterns, not proof.
 - Hairline cracks in the mortar.
 - A faint damp smell only on humid days.
 
-Active water in your home? Call [(682) 354-6644](tel:+16823546644).
+Active water in your home? Call [(877) 203-8193](tel:+18772038193).
 
 ### Signs of a Serious Leak
 
@@ -232,4 +232,4 @@ Call if water actively drips, stains appear on the ceiling, a musty smell develo
 
 A [chimney inspection](https://fortworthchimneysweep.com/chimney-inspection-fort-worth-tx/) finds the entry point. [Chimney leak repair](https://fortworthchimneysweep.com/chimney-leak-repair-fort-worth-tx/) fixes it.
 
-Ready to stop the drip? Call [(682) 354-6644](tel:+16823546644).
+Ready to stop the drip? Call [(877) 203-8193](tel:+18772038193).

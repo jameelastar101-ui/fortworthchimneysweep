@@ -21,7 +21,7 @@ Moisture is getting into your chimney somewhere. Finding the source stops the sm
 
 Masking it with baking soda or a deodorizer doesn't fix the cause. The smell comes back.
 
-Chimney Sweep Pro can find the source. Call [(682) 354-6644](tel:+16823546644).
+Chimney Sweep Pro can find the source. Call [(877) 203-8193](tel:+18772038193).
 
 <img
   src="/images/blog/fireplace-smell-wet/wet-fireplace-smell-field-guide-infographic.webp"
@@ -171,7 +171,7 @@ The moisture source usually isn't visible from inside the house. A cracked crown
 
 A flue camera can also check for condensation patterns inside the liner. This isn't something a homeowner can assess safely or accurately.
 
-If you'd like this looked at directly, call [(682) 354-6644](tel:+16823546644).
+If you'd like this looked at directly, call [(877) 203-8193](tel:+18772038193).
 
 ### What an Inspection and Sweep Visit Address
 
@@ -195,7 +195,7 @@ A musty smell that's brand new, after years of nothing, usually means something 
 
 This is worth addressing sooner rather than later. New water intrusion gets worse the longer it's ignored.
 
-Ready to get it checked? Call [(682) 354-6644](tel:+16823546644).
+Ready to get it checked? Call [(877) 203-8193](tel:+18772038193).
 
 ### Fort Worth's Climate and Chimney Moisture
 

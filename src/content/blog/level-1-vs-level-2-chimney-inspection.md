@@ -19,7 +19,7 @@ Level 1 is the routine inspection for a chimney that hasn't changed. Level 2 add
 
 Most Fort Worth homeowners need a Level 1 each year. A Level 2 applies when you buy or sell, change the fuel or appliance, reline the chimney, or deal with a fire or storm.
 
-Not sure which one applies to you? Chimney Sweep Pro can tell you. Call [(682) 354-6644](tel:+16823546644).
+Not sure which one applies to you? Chimney Sweep Pro can tell you. Call [(877) 203-8193](tel:+18772038193).
 
 <img
   src="/images/blog/level-1-vs-level-2-chimney-inspection/level-1-vs-level-2-chimney-inspection-summary-infographic.webp"
@@ -74,7 +74,7 @@ Match your situation to a level.
 | Operating malfunction, or a Level 1 that can't confirm the system is safe | Level 2 | More detail is needed |
 | A Level 1 or 2 points to a hidden hazard | Level 3 | Concealed areas must be opened |
 
-Your situation isn't on the list? Call [(682) 354-6644](tel:+16823546644) and we'll tell you which level fits.
+Your situation isn't on the list? Call [(877) 203-8193](tel:+18772038193) and we'll tell you which level fits.
 
 ### What a Level 1 Inspection Covers
 
@@ -252,4 +252,4 @@ Call when you're buying or selling, after a fire or storm, or when anything abou
 
 A [chimney inspection](https://fortworthchimneysweep.com/chimney-inspection-fort-worth-tx/) confirms your chimney's condition at the right level. If the liner is damaged, see [chimney relining](https://fortworthchimneysweep.com/chimney-relining-fort-worth-tx/).
 
-Ready to book the right level? Call [(682) 354-6644](tel:+16823546644).
+Ready to book the right level? Call [(877) 203-8193](tel:+18772038193).

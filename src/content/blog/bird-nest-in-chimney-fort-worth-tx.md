@@ -2,7 +2,7 @@
 title: "What to Do About a Bird Nest in Your Fort Worth Chimney"
 titleTag: "BIRD NEST IN CHIMNEY: IS IT LEGAL TO REMOVE?"
 slug: "bird-nest-in-chimney-fort-worth-tx"
-metaDescription: "A bird nest in your Fort Worth chimney may be protected by law. Learn how to ID the species, when removal is legal, and the risks. Call (682) 354-6644."
+metaDescription: "A bird nest in your Fort Worth chimney may be protected by law. Learn how to ID the species, when removal is legal, and the risks. Call (877) 203-8193."
 ogImage: "/images/blog/bird-nest-in-chimney-fort-worth-tx/hero-bird-nest-in-chimney-fort-worth-tx.webp"
 ---
 
@@ -119,4 +119,4 @@ That pattern shows up most in neighborhoods with a lot of pre-1970 masonry housi
 
 Call as soon as you suspect a nest, even during the protected season. An inspection confirms the species and timing without disturbing anything. That way you know exactly when you can act, instead of guessing.
 
-Chimney Sweep Pro serves Fort Worth and Tarrant County. See [bird in chimney removal](/bird-in-chimney-removal/) for the full service, or [chimney animal removal](/chimney-animal-removal-fort-worth-tx/) if you're dealing with more than birds. Call [(682) 354-6644](tel:+16823546644).
+Chimney Sweep Pro serves Fort Worth and Tarrant County. See [bird in chimney removal](/bird-in-chimney-removal/) for the full service, or [chimney animal removal](/chimney-animal-removal-fort-worth-tx/) if you're dealing with more than birds. Call [(877) 203-8193](tel:+18772038193).

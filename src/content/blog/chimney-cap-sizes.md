@@ -13,7 +13,7 @@ To measure for a chimney cap, you need the outside size of the flue tile and how
 
 This post shows what a professional measures and how to check the numbers on a Fort Worth quote.
 
-Want the right size without climbing up? Chimney Sweep Pro can measure it. Call [(682) 354-6644](tel:+16823546644).
+Want the right size without climbing up? Chimney Sweep Pro can measure it. Call [(877) 203-8193](tel:+18772038193).
 
 <img
   src="/images/blog/chimney-cap-sizes/chimney-cap-sizes-summary.webp"
@@ -146,7 +146,7 @@ A cap that is too small or loose leaves gaps that let rain and animals in, rattl
 - **Rattling:** a loose cap shakes in wind, which is one of the [signs a chimney cap needs replacing](/chimney-cap-needs-replacing/).
 - **Open flue:** a cap that comes off leaves the chimney exposed, as our guide to a [chimney without a cap](/chimney-without-a-cap/) explains.
 
-Unsure whether your cap fits? Chimney Sweep Pro can check. Call [(682) 354-6644](tel:+16823546644).
+Unsure whether your cap fits? Chimney Sweep Pro can check. Call [(877) 203-8193](tel:+18772038193).
 
 ## What can you check from the ground?
 
@@ -248,4 +248,4 @@ Call a professional when the cap is missing, loose, leaning, or rattling, when y
 
 Counting flues and taking photos from the ground is a job you can do. Climbing a roof to measure is a fall risk, so leave it to a professional.
 
-Chimney Sweep Pro handles [chimney cap installation in Fort Worth](/chimney-cap-installation-fort-worth-tx/) and nearby cities such as Keller and Saginaw. For help with how to measure for a chimney cap, call [(682) 354-6644](tel:+16823546644) and we will measure your chimney.
+Chimney Sweep Pro handles [chimney cap installation in Fort Worth](/chimney-cap-installation-fort-worth-tx/) and nearby cities such as Keller and Saginaw. For help with how to measure for a chimney cap, call [(877) 203-8193](tel:+18772038193) and we will measure your chimney.

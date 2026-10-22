@@ -10,7 +10,7 @@ Always use the `/write-content` skill for the writing itself. This file adds rul
 
 * **Business:** Chimney Sweep Pro
 * **Address:** 804 Mustang Dr, Saginaw, TX 76179
-* **Phone:** (682) 354-6644, link format `tel:+16823546644`. Never use (877) 203-8193.
+* **Phone:** (877) 203-8193, link format `tel:+18772038193`. Never use (877) 203-8193.
 * **Site:** fortworthchimneysweep.com
 * **Language:** English (US)
 * **Tone:** plain-spoken, practical, and confident, like an experienced tradesman explaining a job to a homeowner. No hype.
@@ -123,7 +123,7 @@ The user does not fill in a page brief. You research, then offer options, and th
 ### 4.3 Meta description
 
 * Includes the primary keyword and the city, naturally
-* **Ends with "Call (682) 354-6644"**
+* **Ends with "Call (877) 203-8193"**
 * Must fit under **920px desktop and 680px mobile**. Use roughly 110-150 characters as a guide and put the most important words first.
 * No free-offer wording
 
@@ -133,7 +133,7 @@ The user does not fill in a page brief. You research, then offer options, and th
 * Different wording from the title tag, same intent
 * The UVP sits in the H1 or the subheading directly under it
 * Readable in 2-3 lines on mobile
-* Hero CTA line: `Call (682) 354-6644` plus a short reason tied to the service
+* Hero CTA line: `Call (877) 203-8193` plus a short reason tied to the service
 
 ### 4.5 Body order
 
@@ -197,12 +197,12 @@ The number of H2s is flexible.
 * Answers run **40-60 words**, answer first, self-contained, and specific.
 * Price answers match the pricing section exactly.
 * Include the service and the city in some questions. No duplicate questions.
-* Add "Call (682) 354-6644" only to urgent or cost answers, not every answer.
+* Add "Call (877) 203-8193" only to urgent or cost answers, not every answer.
 * Use a descriptive H2 for the block (for example, "Chimney Relining FAQs for Fort Worth Homeowners").
 
 ### 4.11 CTA (call only, everywhere)
 
-* The only CTA is `Call (682) 354-6644`. No forms, no Contact page link, no email or chat CTA, no free-offer wording.
+* The only CTA is `Call (877) 203-8193`. No forms, no Contact page link, no email or chat CTA, no free-offer wording.
 * Use urgency wording only where it fits (leaks, animal removal).
 * The header button and the sticky mobile button are built by Claude Code. You write the hero, mid-page, and closing CTAs.
 
@@ -244,7 +244,7 @@ End every page package with this block, filled in for the page:
 > - \[ ] \*\*Service area and neighborhoods:\*\* confirm you actually serve every place named
 > - \[ ] \*\*Photos and alt text:\*\* confirm they match the real images
 > - \[ ] \*\*Live SERP:\*\* I checked on \[today's date]. Rankings pages change, so re-check before publishing.
-> - \[ ] \*\*After the build:\*\* internal links resolve, phone number is (682) 354-6644 everywhere, canonical and sitemap are correct
+> - \[ ] \*\*After the build:\*\* internal links resolve, phone number is (877) 203-8193 everywhere, canonical and sitemap are correct
 > - \[ ] \*\*Schema:\*\* run the built page through Google's Rich Results Test and the Schema Markup Validator
 > - \[ ] \*\*Speed and mobile:\*\* run PageSpeed Insights (mobile) and check tap targets and tables
 > - \[ ] \*\*After launch:\*\* request indexing in Search Console, then track rankings, Search Console queries, and call clicks by page

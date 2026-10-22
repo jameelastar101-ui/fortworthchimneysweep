@@ -3,8 +3,8 @@
 export const site = {
   name: 'Chimney Sweep Pro',
   url: 'https://fortworthchimneysweep.com',
-  phone: '(682) 354-6644',
-  phoneHref: 'tel:+16823546644',
+  phone: '(877) 203-8193',
+  phoneHref: 'tel:+18772038193',
   address: {
     street: '804 Mustang Dr',
     city: 'Saginaw',

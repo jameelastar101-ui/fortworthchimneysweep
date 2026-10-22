@@ -12,7 +12,7 @@ hub: chimney-cap-installation-fort-worth-tx
 
 A top-sealing damper and a chimney cap do different jobs, and some fireplaces need both. This post compares how each handles drafts and animals on a Fort Worth chimney, and which fireplaces should not use a top damper at all.
 
-Not sure which damper or cap your chimney has? Chimney Sweep Pro can check. Call [(682) 354-6644](tel:+16823546644).
+Not sure which damper or cap your chimney has? Chimney Sweep Pro can check. Call [(877) 203-8193](tel:+18772038193).
 
 <img
   src="/images/blog/top-sealing-damper-vs-chimney-cap/top-sealing-damper-vs-cap-summary.webp"
@@ -96,7 +96,7 @@ With a screen and a cap, animals stay out even when the damper is left open afte
 
 A damper with no screen leaves the flue open when the lid is up. A homeowner's report on a woodworking forum says animals can get in when one is left open for a long time, so check which kind you have.
 
-Wondering whether your flue is sealed when it should be? Chimney Sweep Pro can look. Call [(682) 354-6644](tel:+16823546644).
+Wondering whether your flue is sealed when it should be? Chimney Sweep Pro can look. Call [(877) 203-8193](tel:+18772038193).
 
 ## Why might you still need a chimney cap with a top-sealing damper?
 
@@ -239,4 +239,4 @@ Opening and closing the damper from the fireplace is a job you can do. Installin
 
 Price depends on the unit, the flue size, and the labor, and the factors are laid out in our post on [chimney cap installation cost](/chimney-cap-installation-cost/).
 
-Chimney Sweep Pro handles [chimney cap installation in Fort Worth](/chimney-cap-installation-fort-worth-tx/) and nearby cities such as Keller and Saginaw. For a top-sealing damper vs chimney cap question on your fireplace, call [(682) 354-6644](tel:+16823546644) and we will look at both.
+Chimney Sweep Pro handles [chimney cap installation in Fort Worth](/chimney-cap-installation-fort-worth-tx/) and nearby cities such as Keller and Saginaw. For a top-sealing damper vs chimney cap question on your fireplace, call [(877) 203-8193](tel:+18772038193) and we will look at both.

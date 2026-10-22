@@ -26,7 +26,7 @@ Don't touch it or brush it away yourself. Disturbing mold spreads its spores int
 
 Close the fireplace doors or damper if you can. Keep children, pets, and anyone with allergies away from the area.
 
-If you'd like this confirmed and safely removed, Chimney Sweep Pro can help. Call [(682) 354-6644](tel:+16823546644).
+If you'd like this confirmed and safely removed, Chimney Sweep Pro can help. Call [(877) 203-8193](tel:+18772038193).
 
 <img
   src="/images/blog/mold-in-fireplace/mold-in-fireplace-summary-infographic.webp"
@@ -106,7 +106,7 @@ Children and elderly individuals are more vulnerable to mold exposure. People wi
 
 Anyone with a compromised immune system should avoid contact entirely. Healthy adults can still experience symptoms with prolonged exposure.
 
-If anyone in the household falls into these groups, treat the situation with extra caution. Concerned about symptoms already showing up? Call [(682) 354-6644](tel:+16823546644) and we'll get it inspected.
+If anyone in the household falls into these groups, treat the situation with extra caution. Concerned about symptoms already showing up? Call [(877) 203-8193](tel:+18772038193) and we'll get it inspected.
 
 ### Immediate Safety Steps
 
@@ -228,4 +228,4 @@ A [chimney sweep](https://fortworthchimneysweep.com/chimney-sweep-fort-worth-tx/
 
 If the cause turns out to be an active leak, see [chimney leak repair](https://fortworthchimneysweep.com/chimney-leak-repair-fort-worth-tx/). If a missing or damaged cap is the entry point, see [chimney cap installation](https://fortworthchimneysweep.com/chimney-cap-installation-fort-worth-tx/).
 
-Ready to get it looked at? Call [(682) 354-6644](tel:+16823546644).
+Ready to get it looked at? Call [(877) 203-8193](tel:+18772038193).

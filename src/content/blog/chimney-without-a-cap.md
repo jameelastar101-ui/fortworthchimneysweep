@@ -11,7 +11,7 @@ hub: chimney-cap-installation-fort-worth-tx
 
 A chimney without a cap lets rain, snow, animals, leaves, and wind straight into the flue. This post shows which part of a Fort Worth chimney each risk damages and what to do about it.
 
-Not sure whether your chimney has a cap? Chimney Sweep Pro can check. Call [(682) 354-6644](tel:+16823546644).
+Not sure whether your chimney has a cap? Chimney Sweep Pro can check. Call [(877) 203-8193](tel:+18772038193).
 
 <img
   src="/images/blog/chimney-without-a-cap/chimney-without-a-cap-summary.webp"
@@ -99,7 +99,7 @@ Carbon monoxide is an odorless gas that comes from burning fuel. If a carbon mon
 
 Wind can also push leaves and twigs into an open flue, where they trap moisture against the liner.
 
-Wondering what is already in your flue? Chimney Sweep Pro can look. Call [(682) 354-6644](tel:+16823546644).
+Wondering what is already in your flue? Chimney Sweep Pro can look. Call [(877) 203-8193](tel:+18772038193).
 
 ## Why do chimneys without caps get cold drafts?
 
@@ -224,4 +224,4 @@ Looking from the ground is a job you can do. Roof work belongs to a professional
 
 Ask any chimney company whether its technicians hold CSIA certification.
 
-Chimney Sweep Pro handles [chimney cap installation in Fort Worth](/chimney-cap-installation-fort-worth-tx/) and nearby cities such as Keller and Saginaw. A chimney without a cap keeps taking in water and animals, so call [(682) 354-6644](tel:+16823546644) and we will check the flue and fit one.
+Chimney Sweep Pro handles [chimney cap installation in Fort Worth](/chimney-cap-installation-fort-worth-tx/) and nearby cities such as Keller and Saginaw. A chimney without a cap keeps taking in water and animals, so call [(877) 203-8193](tel:+18772038193) and we will check the flue and fit one.

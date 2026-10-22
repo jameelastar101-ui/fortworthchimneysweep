@@ -45,7 +45,7 @@ Items Claude cannot measure (pixel widths, readability score, exact word count, 
 * \[ ] **Width under 920px on desktop and 680px on mobile**, checked in a SERP preview tool
 * \[ ] **Primary keyword included** naturally, and the city where it fits
 * \[ ] **No free offer wording and no prices**
-* \[ ] **Ends with a short call to action** matching the CTA chosen for the post (e.g., "Call (682) 354-6644")
+* \[ ] **Ends with a short call to action** matching the CTA chosen for the post (e.g., "Call (877) 203-8193")
 
 ### URL and H1
 
@@ -107,7 +107,7 @@ Items Claude cannot measure (pixel widths, readability score, exact word count, 
 * \[ ] **Local content unique to the post**: not the same sentence pattern with neighborhood names swapped
 * \[ ] **Business name, service area, and phone number** stated in the body text
 * \[ ] **No ZIP code lists** in the body
-* \[ ] **Phone number is (682) 354-6644** everywhere, with no trace of (877) 203-8193
+* \[ ] **Phone number is (877) 203-8193** everywhere, with no trace of (877) 203-8193
 
 \---
 
@@ -133,7 +133,7 @@ The call-only CTA rule applies to service pages, not blog posts.
 * \[ ] **No free offer wording** in any CTA
 * \[ ] **CTA placed where the reader decides to get help** (the "when to call a professional" section and the closing line), not in every section
 * \[ ] **Short reason to act** tied to the topic, with urgency wording only where it applies
-* \[ ] **Call links use `tel:+16823546644`**, with the visible text "(682) 354-6644"
+* \[ ] **Call links use `tel:+18772038193`**, with the visible text "(877) 203-8193"
 
 \---
 

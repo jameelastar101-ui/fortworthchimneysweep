@@ -11,7 +11,7 @@ A smoke smell from a fireplace when not in use comes from old creosote and soot 
 
 This page gives quick relief, six causes, and the signs of a bigger problem.
 
-Want the source found? Chimney Sweep Pro can help. Call [(682) 354-6644](tel:+16823546644).
+Want the source found? Chimney Sweep Pro can help. Call [(877) 203-8193](tel:+18772038193).
 
 <img
   src="/images/blog/smoke-smell-from-fireplace-when-not-in-use/smoke-smell-cold-fireplace-summary-infographic.webp"
@@ -106,7 +106,7 @@ Ash absorbs moisture from the air. It then releases a stale, burnt-wood odor. Fi
 
 Remove ash only when it's completely cold. Put it in a metal container and store it outside. A vacuum with a HEPA filter picks up fine soot that sweeping misses.
 
-Can't tell which cause you have? Call [(682) 354-6644](tel:+16823546644).
+Can't tell which cause you have? Call [(877) 203-8193](tel:+18772038193).
 
 ### Why the Smell Gets Worse in Summer and After Rain
 
@@ -208,4 +208,4 @@ Call if the smell lasts more than a few days, returns every summer, or comes wit
 
 A [chimney sweep](https://fortworthchimneysweep.com/chimney-sweep-fort-worth-tx/) removes the residue behind most cold-fireplace smells. A [chimney inspection](https://fortworthchimneysweep.com/chimney-inspection-fort-worth-tx/) finds moisture, damper, and blockage problems.
 
-Ready to get the smell gone for good? Call [(682) 354-6644](tel:+16823546644).
+Ready to get the smell gone for good? Call [(877) 203-8193](tel:+18772038193).

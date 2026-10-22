@@ -19,7 +19,7 @@ Your chimney cap blew off. Don't run a fire until it's replaced or the opening i
 
 An open flue lets in rain, animals, and debris. It also removes your spark arrestor.
 
-Stay off the roof yourself. If you need a fast, permanent fix, Chimney Sweep Pro can help — [(682) 354-6644](tel:+16823546644).
+Stay off the roof yourself. If you need a fast, permanent fix, Chimney Sweep Pro can help — [(877) 203-8193](tel:+18772038193).
 
 Don't use the fireplace with the flue exposed. Don't climb onto the roof to check it yourself.
 

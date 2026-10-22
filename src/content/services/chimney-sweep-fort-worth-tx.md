@@ -2,9 +2,9 @@
 title: "Chimney sweep in Fort Worth, TX"
 titleTag: "CHIMNEY SWEEP FORT WORTH, TX"
 slug: "chimney-sweep-fort-worth-tx"
-metaDescription: "Chimney sweep in Fort Worth, TX with a Level 1 inspection and a written condition report every visit. Call (682) 354-6644"
+metaDescription: "Chimney sweep in Fort Worth, TX with a Level 1 inspection and a written condition report every visit. Call (877) 203-8193"
 ogImage: "/images/chimney-sweep/chimney-sweep-fort-worth-hero.webp"
-phone: "(682) 354-6644"
+phone: "(877) 203-8193"
 cluster: "sweep-inspection"
 role: "hub"
 related: ["chimney-inspection-fort-worth-tx"]
@@ -153,7 +153,7 @@ local:
       body: "Fort Worth fireplaces sit unused through the long warm months and then see use in a short cold stretch. The best time to sweep is before the first fire of the season, not after. A sweep beforehand clears the soot and debris that settled over the summer."
   imageBlockIndex: 0
   serviceAreaLine: "Chimney Sweep Pro is based at 804 Mustang Dr, Saginaw, TX 76179, and sweeps chimneys in Fort Worth, Keller, Mansfield, Southlake, Arlington, Benbrook, North Richland Hills, Burleson, Haltom City, Saginaw, and Weatherford. Keller has its own page: [chimney sweep in Keller, TX](/chimney-sweep-keller-tx/). See our [chimney sweep services](/chimney-sweep-services/) for our full range of chimney work."
-  nap: "Chimney Sweep Pro, 804 Mustang Dr, Saginaw, TX 76179, (682) 354-6644"
+  nap: "Chimney Sweep Pro, 804 Mustang Dr, Saginaw, TX 76179, (877) 203-8193"
 
 faqHeading: "Chimney Sweep FAQs for Fort Worth Homeowners"
 faqs:
@@ -166,7 +166,7 @@ faqs:
   - question: "How long does a chimney sweep take?"
     answer: "A chimney sweep usually takes 45 to 90 minutes. The time depends on your fireplace size, how much creosote has built up, and whether you add a Level 2 video inspection, which adds time."
   - question: "How much does a chimney sweep cost in Fort Worth?"
-    answer: "A chimney sweep costs {{price:sweep-standard}} with Chimney Sweep Pro, based on fireplace size and how much buildup the flue holds. A sweep with a Level 2 video inspection costs {{price:sweep-level2}}. The technician confirms your price in writing before cleaning starts. [Call (682) 354-6644](tel:+16823546644) to book."
+    answer: "A chimney sweep costs {{price:sweep-standard}} with Chimney Sweep Pro, based on fireplace size and how much buildup the flue holds. A sweep with a Level 2 video inspection costs {{price:sweep-level2}}. The technician confirms your price in writing before cleaning starts. [Call (877) 203-8193](tel:+18772038193) to book."
   - question: "Which Fort Worth-area cities do you serve for chimney sweeping?"
     answer: "We sweep chimneys in Fort Worth, Keller, Mansfield, Southlake, Arlington, Benbrook, North Richland Hills, Burleson, Haltom City, Saginaw, and Weatherford. The service and the pricing tiers are the same in each city. Ask when you call if your city is not listed."
   - question: "When is the best time to schedule a chimney sweep in Fort Worth?"

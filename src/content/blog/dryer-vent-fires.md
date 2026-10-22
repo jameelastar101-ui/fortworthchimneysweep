@@ -15,7 +15,7 @@ Dryer vent fires start when heat meets lint, clothing, or another flammable mate
 
 If your dryer is on fire right now, get everyone out and call 911 first. The full steps are in the emergency section below.
 
-Chimney Sweep Pro [cleans dryer vents](/dryer-vent-cleaning-fort-worth-tx/) for Fort Worth homeowners from our base in Saginaw, TX. To book a cleaning, call [(682) 354-6644](tel:+16823546644).
+Chimney Sweep Pro [cleans dryer vents](/dryer-vent-cleaning-fort-worth-tx/) for Fort Worth homeowners from our base in Saginaw, TX. To book a cleaning, call [(877) 203-8193](tel:+18772038193).
 
 <img
   src="/images/blog/dryer-vent-fires/dryer-vent-fires-summary-infographic.webp"
@@ -161,7 +161,7 @@ You prevent dryer vent fires by keeping lint and heat from building up and by us
 
 Long dry times, a very hot dryer, and a burning smell often come before a dryer vent fire. The [signs of a clogged dryer vent](/signs-of-a-clogged-dryer-vent/) explain each one and how to test airflow.
 
-Chimney Sweep Pro can clear a blocked vent before it becomes a hazard. Call [(682) 354-6644](tel:+16823546644).
+Chimney Sweep Pro can clear a blocked vent before it becomes a hazard. Call [(877) 203-8193](tel:+18772038193).
 
 ## What should you do after a dryer fire?
 
@@ -198,4 +198,4 @@ Call a professional when the vent is hard to reach, when warning signs persist, 
 
 Chimney Sweep Pro provides [dryer vent cleaning in Fort Worth](/dryer-vent-cleaning-fort-worth-tx/) for homeowners in Fort Worth and nearby areas.
 
-To lower your risk of dryer vent fires, call [(682) 354-6644](tel:+16823546644) and have the vent cleaned. For smoke or flames, follow the emergency steps above first.
+To lower your risk of dryer vent fires, call [(877) 203-8193](tel:+18772038193) and have the vent cleaned. For smoke or flames, follow the emergency steps above first.

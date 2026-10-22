@@ -12,7 +12,7 @@ hub: chimney-cap-installation-fort-worth-tx
 
 A chimney cap needs replacing when it shows rust stains, sits loose or crooked, rattles in wind, has bent metal or torn mesh, lets animals in, or lets water or smoke into the house. Fort Worth hail, heat, and storm winds wear caps out in ways you can often spot from the ground.
 
-Not sure your cap is still doing its job? Chimney Sweep Pro can check it. Call [(682) 354-6644](tel:+16823546644).
+Not sure your cap is still doing its job? Chimney Sweep Pro can check it. Call [(877) 203-8193](tel:+18772038193).
 
 <img
   src="/images/blog/chimney-cap-needs-replacing/chimney-cap-needs-replacing-summary.webp"
@@ -114,7 +114,7 @@ Soot is the black residue wood smoke leaves behind. It collects on mesh and narr
 
 The code's sphere test sets the mesh opening size a spark-arrestor screen has to meet, and that same opening is what soot narrows as it clogs.
 
-Seeing damage you cannot judge from the ground? Chimney Sweep Pro can look at it. Call [(682) 354-6644](tel:+16823546644).
+Seeing damage you cannot judge from the ground? Chimney Sweep Pro can look at it. Call [(877) 203-8193](tel:+18772038193).
 
 ## What do animal sounds in a chimney mean for the cap?
 
@@ -261,4 +261,4 @@ Checking the cap from the ground is a job you can do. Climbing a roof to remove 
 
 Ask any chimney company whether its technicians hold CSIA certification.
 
-Chimney Sweep Pro handles [chimney cap installation in Fort Worth](/chimney-cap-installation-fort-worth-tx/) and nearby cities such as Keller and Saginaw. If you think your chimney cap needs replacing, call [(682) 354-6644](tel:+16823546644) and we will find out.
+Chimney Sweep Pro handles [chimney cap installation in Fort Worth](/chimney-cap-installation-fort-worth-tx/) and nearby cities such as Keller and Saginaw. If you think your chimney cap needs replacing, call [(877) 203-8193](tel:+18772038193) and we will find out.

@@ -17,7 +17,7 @@ hidePhoneCta: true
 
 Black chimney smoke means incomplete combustion. Fuel isn't burning fully. The unburned part turns into soot, and the soot leaves with the smoke.
 
-A short puff of black smoke at start-up is normal. Smoke that keeps coming, or gets thicker, is not. If it doesn't clear within a few minutes, Chimney Sweep Pro can check it — [(682) 354-6644](tel:+16823546644).
+A short puff of black smoke at start-up is normal. Smoke that keeps coming, or gets thicker, is not. If it doesn't clear within a few minutes, Chimney Sweep Pro can check it — [(877) 203-8193](tel:+18772038193).
 
 The most common causes are wet firewood, a closed damper, and a blocked flue. A quick check of your wood and airflow usually points to one of them.
 

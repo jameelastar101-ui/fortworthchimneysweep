@@ -25,7 +25,7 @@ Protect the inside of your home first. Move anything valuable away from the leak
 
 Don't climb on the roof yourself. Hail damage is often hard to see from the ground.
 
-If you want a professional look today, Chimney Sweep Pro can inspect it — [(682) 354-6644](tel:+16823546644).
+If you want a professional look today, Chimney Sweep Pro can inspect it — [(877) 203-8193](tel:+18772038193).
 
 <img
   src="/images/blog/chimney-leaking-after-hail/chimney-hail-leak-cutaway-diagram-cap-crown-flashing-mortar.webp"

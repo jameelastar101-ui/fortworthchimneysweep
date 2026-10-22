@@ -12,7 +12,7 @@ A blog post is an information page. Its job is to answer the searcher's question
 
 * **Business:** Chimney Sweep Pro
 * **Address:** 804 Mustang Dr, Saginaw, TX 76179
-* **Phone:** (682) 354-6644, link format `tel:+16823546644`. Never use (877) 203-8193.
+* **Phone:** (877) 203-8193, link format `tel:+18772038193`. Never use (877) 203-8193.
 * **Site:** fortworthchimneysweep.com
 * **Language:** English (US)
 * **Tone:** plain-spoken, practical, and confident, like an experienced tradesman explaining a problem to a homeowner. No hype.
@@ -135,7 +135,7 @@ The user does not fill in a brief. You research, then offer options, and the use
 ### 4.3 Meta description
 
 * Includes the primary keyword, and the city where it fits, naturally
-* **Ends with a short call to action** that matches the CTA the user chose (for example, "Call (682) 354-6644")
+* **Ends with a short call to action** that matches the CTA the user chose (for example, "Call (877) 203-8193")
 * No prices
 * Must fit under **920px desktop and 680px mobile**. Use roughly 110-150 characters as a guide and put the most important words first.
 * No free-offer wording
@@ -205,7 +205,7 @@ The post must expand the reader's knowledge across subtopics without saying anyt
 
 ### 4.9 CTA and safety
 
-* The call-only rule applies to service pages, not blog posts. Use the CTA the user chose in the menu: a call link (`tel:+16823546644`, visible text "(682) 354-6644"), a link to the matching service page, or a link to `/contact-us/`. There are no forms on the site.
+* The call-only rule applies to service pages, not blog posts. Use the CTA the user chose in the menu: a call link (`tel:+18772038193`, visible text "(877) 203-8193"), a link to the matching service page, or a link to `/contact-us/`. There are no forms on the site.
 * No free-offer wording in any CTA.
 * Place the CTA where the reader decides to get help (the "when to call a professional" section and the closing line). Do not add a CTA to every section.
 * Use urgency wording only where it fits (leaks, animals, smoke, mold).
@@ -255,7 +255,7 @@ End every post package with this block, filled in for the post:
 > - \[ ] \*\*Credentials:\*\* confirm any certification or badge named is true and current
 > - \[ ] \*\*Photos and alt text:\*\* confirm they match the real images
 > - \[ ] \*\*Live SERP:\*\* I checked on \[today's date]. Rankings pages change, so re-check before publishing.
-> - \[ ] \*\*After the build:\*\* internal links resolve, phone number is (682) 354-6644 everywhere, canonical and sitemap are correct
+> - \[ ] \*\*After the build:\*\* internal links resolve, phone number is (877) 203-8193 everywhere, canonical and sitemap are correct
 > - \[ ] \*\*Schema:\*\* run the built page through Google's Rich Results Test and the Schema Markup Validator
 > - \[ ] \*\*Speed and mobile:\*\* run PageSpeed Insights (mobile) and check tap targets and tables
 > - \[ ] \*\*After launch:\*\* request indexing in Search Console, then track rankings, Search Console queries, and call clicks by page

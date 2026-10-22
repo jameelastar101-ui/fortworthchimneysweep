@@ -19,7 +19,7 @@ Chimney cap installation cost isn't one number. It depends on four things: mater
 
 This guide covers each factor. Use it to understand your quote, whether it's on the low end or the high end.
 
-Chimney Sweep Pro measures your flue before giving a price. Call [(682) 354-6644](tel:+16823546644) for a written quote.
+Chimney Sweep Pro measures your flue before giving a price. Call [(877) 203-8193](tel:+18772038193) for a written quote.
 
 Material affects cost the most. Size and shape affect it next. Roof access affects labor time.
 

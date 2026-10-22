@@ -12,7 +12,7 @@ hub: chimney-cap-installation-fort-worth-tx
 
 Chimney cap types come down to three choices: the metal, how many flues the cap covers, and how it mounts. Fort Worth hail, summer heat, and older masonry change which choice fits your chimney.
 
-Not sure which cap suits your chimney? Chimney Sweep Pro can help you sort it out. Call [(682) 354-6644](tel:+16823546644).
+Not sure which cap suits your chimney? Chimney Sweep Pro can help you sort it out. Call [(877) 203-8193](tel:+18772038193).
 
 <img
   src="/images/blog/chimney-cap-types/chimney-cap-types-summary.webp"
@@ -105,7 +105,7 @@ Copper does not rust, and it changes color as it ages. New copper is reddish ora
 
 Copper is soft, so hail can dent it. Homeowners care most about appearance on chimneys that face the street.
 
-Comparing metals for your roof? Chimney Sweep Pro can walk you through the options. Call [(682) 354-6644](tel:+16823546644).
+Comparing metals for your roof? Chimney Sweep Pro can walk you through the options. Call [(877) 203-8193](tel:+18772038193).
 
 ## Single-flue chimney caps
 
@@ -221,4 +221,4 @@ Call a professional when the cap is loose, leaning, missing, or rusted through. 
 
 A professional measures the flue opening, checks the crown for cracks, and identifies the liner type before choosing a cap. Choosing a cap is a job you can do from the ground. Climbing a roof to remove or fasten one is a fall risk, so leave it to a professional.
 
-Chimney Sweep Pro handles [chimney cap installation in Fort Worth](/chimney-cap-installation-fort-worth-tx/) and nearby cities such as Keller and Saginaw. Whichever chimney cap types you are weighing, call [(682) 354-6644](tel:+16823546644) and we will confirm the fit before you buy.
+Chimney Sweep Pro handles [chimney cap installation in Fort Worth](/chimney-cap-installation-fort-worth-tx/) and nearby cities such as Keller and Saginaw. Whichever chimney cap types you are weighing, call [(877) 203-8193](tel:+18772038193) and we will confirm the fit before you buy.

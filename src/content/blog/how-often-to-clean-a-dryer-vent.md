@@ -14,7 +14,7 @@ hub: dryer-vent-cleaning-fort-worth-tx
 
 How often to clean a dryer vent depends on your household, but the baseline is at least once a year. Fort Worth homes with pets, heavy laundry loads, or long vent runs need it sooner.
 
-Chimney Sweep Pro [cleans dryer vents](/dryer-vent-cleaning-fort-worth-tx/) for Fort Worth homeowners from our base in Saginaw, TX. To set up a cleaning, call [(682) 354-6644](tel:+16823546644).
+Chimney Sweep Pro [cleans dryer vents](/dryer-vent-cleaning-fort-worth-tx/) for Fort Worth homeowners from our base in Saginaw, TX. To set up a cleaning, call [(877) 203-8193](tel:+18772038193).
 
 <img
   src="/images/blog/how-often-to-clean-a-dryer-vent/how-often-to-clean-a-dryer-vent-summary-infographic.webp"
@@ -95,7 +95,7 @@ One quick test uses the timed-dry setting. If a normal 60-minute cycle no longer
 
 A burning smell means stop the dryer and unplug it. If you see smoke or flames, get everyone out of the house and call 911 first.
 
-Not sure your vent is due? Chimney Sweep Pro can clean it. Call [(682) 354-6644](tel:+16823546644).
+Not sure your vent is due? Chimney Sweep Pro can clean it. Call [(877) 203-8193](tel:+18772038193).
 
 ## What to do between dryer vent cleanings
 
@@ -190,4 +190,4 @@ Call a professional when the vent is hard to reach, when signs persist, or when 
 
 Chimney Sweep Pro provides [dryer vent cleaning in Fort Worth](/dryer-vent-cleaning-fort-worth-tx/) for homeowners in Fort Worth and nearby areas.
 
-If you still wonder how often to clean a dryer vent for your home, call [(682) 354-6644](tel:+16823546644). Chimney Sweep Pro can clean the vent and help you set a schedule.
+If you still wonder how often to clean a dryer vent for your home, call [(877) 203-8193](tel:+18772038193). Chimney Sweep Pro can clean the vent and help you set a schedule.

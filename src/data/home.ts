@@ -6,7 +6,7 @@ import { serviceLinks, site } from './site';
 export const home = {
   title: 'Chimney Sweep & Repair in Fort Worth, TX | Chimney Sweep Pro',
   description:
-    'Chimney sweep, inspection, and repair in Fort Worth, TX. Upfront pricing and a written report after every visit. Call (682) 354-6644.',
+    'Chimney sweep, inspection, and repair in Fort Worth, TX. Upfront pricing and a written report after every visit. Call (877) 203-8193.',
 
   hero: {
     headline: "Fort Worth's Trusted Chimney Sweep & Repair Pro",
@@ -121,7 +121,7 @@ export const home = {
       {
         question: 'What areas do you serve?',
         answer:
-          'We serve Fort Worth, Keller, Mansfield, Southlake, Arlington, Benbrook, North Richland Hills, Burleson, Haltom City, Saginaw, and Weatherford. Call (682) 354-6644 to confirm your city.',
+          'We serve Fort Worth, Keller, Mansfield, Southlake, Arlington, Benbrook, North Richland Hills, Burleson, Haltom City, Saginaw, and Weatherford. Call (877) 203-8193 to confirm your city.',
       },
       {
         question: 'Do you give a written report after every visit?',
@@ -131,7 +131,7 @@ export const home = {
       {
         question: 'How do I get a price for my chimney?',
         answer:
-          'Call (682) 354-6644 or request a quote online. Your technician confirms the exact price in writing before any work begins.',
+          'Call (877) 203-8193 or request a quote online. Your technician confirms the exact price in writing before any work begins.',
       },
       {
         question: 'Do you remove animals from chimneys, not just sweeps and repairs?',
@@ -143,7 +143,7 @@ export const home = {
 
   form: {
     heading: 'Request a Quote',
-    intro: "Tell us what's going on and we'll get back to you to schedule a visit. For faster service, call (682) 354-6644.",
+    intro: "Tell us what's going on and we'll get back to you to schedule a visit. For faster service, call (877) 203-8193.",
   },
 };
 

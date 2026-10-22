@@ -19,7 +19,7 @@ If a bird is stuck in your Fort Worth chimney, don't light a fire. Open the damp
 
 This guide covers a few things. How to tell a truly trapped bird from one that's just nesting. The steps to help it out safely. And when to stop trying and call a professional.
 
-To help a bird stuck in a chimney escape, don't light a fire or run a gas appliance connected to the flue. Open the damper, darken the room, and open one exterior door or window as the only light source. Most birds find their way out within 30 to 60 minutes. If it doesn't leave, Chimney Sweep Pro can help — [(682) 354-6644](tel:+16823546644).
+To help a bird stuck in a chimney escape, don't light a fire or run a gas appliance connected to the flue. Open the damper, darken the room, and open one exterior door or window as the only light source. Most birds find their way out within 30 to 60 minutes. If it doesn't leave, Chimney Sweep Pro can help — [(877) 203-8193](tel:+18772038193).
 
 ## Trapped or Nesting? How to Tell the Difference
 

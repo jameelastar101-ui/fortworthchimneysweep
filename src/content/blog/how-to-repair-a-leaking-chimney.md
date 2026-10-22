@@ -24,7 +24,7 @@ Fixing a leak starts with finding the real source. Sealing the wrong spot doesn'
 
 Four things usually cause chimney leaks. The cap, the crown, the flashing, or the mortar joints.
 
-If you'd like the actual source found today, Chimney Sweep Pro can help. Call [(682) 354-6644](tel:+16823546644).
+If you'd like the actual source found today, Chimney Sweep Pro can help. Call [(877) 203-8193](tel:+18772038193).
 
 <img
   src="/images/blog/how-to-repair-a-leaking-chimney/chimney-leak-repair-complete-guide-infographic.webp"
@@ -162,7 +162,7 @@ The specific repair is then completed. That might be one fix or a combination, d
 
 The area is checked afterward, often with a water test, to confirm the leak is actually resolved. This step catches a repair that looks complete but hasn't fully stopped the water.
 
-Want this handled start to finish? Call [(682) 354-6644](tel:+16823546644).
+Want this handled start to finish? Call [(877) 203-8193](tel:+18772038193).
 
 ### How Long a Chimney Leak Repair Takes
 
@@ -234,4 +234,4 @@ Call as soon as you notice a leak, a new stain, or a musty smell. Waiting typica
 
 A [chimney inspection](https://fortworthchimneysweep.com/chimney-inspection-fort-worth-tx/) finds the actual source. [Chimney leak repair](https://fortworthchimneysweep.com/chimney-leak-repair-fort-worth-tx/) addresses whichever combination of cap, crown, flashing, or mortar is responsible.
 
-Ready to get it diagnosed? Call [(682) 354-6644](tel:+16823546644).
+Ready to get it diagnosed? Call [(877) 203-8193](tel:+18772038193).

@@ -8,7 +8,7 @@ A marketing/lead-generation website for **Chimney Sweep Pro**, a chimney-sweep a
 
 - **Business name:** Chimney Sweep Pro
 - **Address:** 804 Mustang Dr, Saginaw, TX 76179
-- **Phone:** (682) 354-6644 (`tel:+16823546644`) — the only phone number that should ever appear; an old number, (877) 203-8193, must never be used
+- **Phone:** (877) 203-8193 (`tel:+18772038193`) — the only phone number that should ever appear; an old number, (877) 203-8193, must never be used
 - **Services:** chimney sweeping/inspection, chimney repair, chimney leak repair, chimney relining, chimney cap installation, animal removal (birds, raccoons, squirrels) from chimneys, dryer vent cleaning
 - **Trust badges** (usable only once confirmed): CSIA Certified, Licensed & Insured, BBB Accredited, NCSG Member
 
@@ -81,7 +81,7 @@ Simple, single-column, reading-focused layout — no component composition neede
 1. "Chimney Sweep Pro Blog" eyebrow, then the H1, then the brand-red "rule" bar.
 2. `.article-body`: the rendered Markdown content, hand-styled (no Tailwind typography plugin) against the same tokens as the rest of the site — `line-height: 1.7` body copy, `clamp()`-scaled `h2`/`h3`, brand-red links (bold, underline-offset 2px, darkening on hover), disc/decimal lists, rounded (`--radius-card`) full-width images with muted-color figcaptions, and horizontally-scrollable tables with `--color-line` borders and a shaded (`--color-line` background) header row.
 3. A phone-CTA card (cream background, bordered, centered on mobile/left-aligned on desktop) at the end of the post — suppressible per-post via `hidePhoneCta`.
-4. A sticky mobile-only "Call (682) 354-6644" bar fixed to the bottom of the viewport (hidden ≥`md`, since desktop already has a persistent phone CTA in the header).
+4. A sticky mobile-only "Call (877) 203-8193" bar fixed to the bottom of the viewport (hidden ≥`md`, since desktop already has a persistent phone CTA in the header).
 5. Structured data: `ArticleSchema` + `BreadcrumbSchema` (Home → Blog → post title), using the post's canonical URL.
 
 ### Service page (e.g. `src/pages/chimney-repair-fort-worth-tx.astro`, and the generic `[slug].astro` route)
@@ -157,5 +157,5 @@ The repo is mid-migration/active development on `main`: component files, layouts
 ## What NOT to assume
 
 - Do not invent new URLs/slugs — every page's address is fixed by the pre-migration WordPress site (see `astro-migration-brief.md`).
-- Do not assume the (877) number is valid — only (682) 354-6644 is current.
+- Do not assume the (877) number is valid — only (877) 203-8193 is current.
 - Pricing, trust badges, and NAP details should be treated as business-sensitive facts to get from `src/data/site.ts` / `src/data/prices.json`, not guessed.

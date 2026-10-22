@@ -58,7 +58,7 @@ Items Claude cannot measure (pixel widths, readability score, live rankings, sch
 * \[ ] **Width under 920px on desktop and 680px on mobile**, checked in a SERP preview tool
 * \[ ] **Primary keyword and city included** naturally
 * \[ ] **No free offer wording**
-* \[ ] **Ends with the call CTA**: "Call (682) 354-6644"
+* \[ ] **Ends with the call CTA**: "Call (877) 203-8193"
 
 ### URL
 
@@ -89,7 +89,7 @@ Items Claude cannot measure (pixel widths, readability score, live rankings, sch
 
 ### Page structure (top to bottom)
 
-* \[ ] **Hero above the fold**: H1, UVP subheading, and the call CTA "Call (682) 354-6644"
+* \[ ] **Hero above the fold**: H1, UVP subheading, and the call CTA "Call (877) 203-8193"
 * \[ ] **Opening paragraph (first 100 words)** states the service, the city, and the USP, and mentions the problems the service solves
 * \[ ] **Problem/symptom section**: warning signs the searcher recognizes
 * \[ ] **Service explanation**: what the service is, what it includes, and when it is needed
@@ -171,7 +171,7 @@ Items Claude cannot measure (pixel widths, readability score, live rankings, sch
 * \[ ] **DIY vs. professional guidance**: when DIY is reasonable and when it is not
 * \[ ] **Insurance angle covered**: when insurance may cover the work (storm, hail, sudden damage), what documentation is provided, and what typically is not covered
 * \[ ] **Permit and code requirements noted** where they apply (Fort Worth Building Inspection Division, HOA, historic district)
-* \[ ] **Clear next step**: the decision content ends with the call CTA "Call (682) 354-6644"
+* \[ ] **Clear next step**: the decision content ends with the call CTA "Call (877) 203-8193"
 
 ### Consistency
 
@@ -208,7 +208,7 @@ Items Claude cannot measure (pixel widths, readability score, live rankings, sch
 ### NAP (name, address, phone)
 
 * \[ ] **Business name, address, and phone** appear in the page body or footer as text
-* \[ ] **Phone number is (682) 354-6644** everywhere: header CTA, hero, footer, click-to-call links, and schema. No trace of (877) 203-8193.
+* \[ ] **Phone number is (877) 203-8193** everywhere: header CTA, hero, footer, click-to-call links, and schema. No trace of (877) 203-8193.
 * \[ ] **NAP matches exactly** across the site and schema (same spelling, abbreviations, and formatting)
 * \[ ] **Business address**: 804 Mustang Dr, Saginaw, TX 76179
 
@@ -285,7 +285,7 @@ Items Claude cannot measure (pixel widths, readability score, live rankings, sch
 * \[ ] **Grade 10-11 reading level** applies to FAQ answers too
 * \[ ] **No generic claims** without evidence
 * \[ ] **No free offer wording**
-* \[ ] **Call CTA "Call (682) 354-6644"** on urgent or cost answers only, not every answer
+* \[ ] **Call CTA "Call (877) 203-8193"** on urgent or cost answers only, not every answer
 
 ### Placement and format
 
@@ -322,7 +322,7 @@ FAQ schema rules live in Section 8.
 ### LocalBusiness (sitewide)
 
 * \[ ] **Rendered once in the main layout**, not repeated in each page body
-* \[ ] **Core fields filled**: name (Chimney Sweep Pro), address (804 Mustang Dr, Saginaw, TX 76179), phone (682) 354-6644, URL, logo, hours, geo coordinates, and service area
+* \[ ] **Core fields filled**: name (Chimney Sweep Pro), address (804 Mustang Dr, Saginaw, TX 76179), phone (877) 203-8193, URL, logo, hours, geo coordinates, and service area
 * \[ ] **Specific business type used** (e.g., `HomeAndConstructionBusiness`) where it fits
 * \[ ] **NAP identical** to the on-page text and footer
 * \[ ] **`areaServed` matches** the service area listed on the page
@@ -374,7 +374,7 @@ FAQ schema rules live in Section 8.
 * \[ ] **Link to related service pages** where the topic connects, using the existing live URLs (e.g., cap, leak repair, repair; inspection, repair, relining)
 * \[ ] **Link to the parent service landing page** (`/chimney-sweep-services/`) where it fits naturally
 * \[ ] **Link to related informational pages** on the site (cost or symptom articles) where they answer a question raised on the page
-* \[ ] **Closing CTA is call only**: a click-to-call link (`tel:`) with (682) 354-6644, and no Contact page link or form beside it
+* \[ ] **Closing CTA is call only**: a click-to-call link (`tel:`) with (877) 203-8193, and no Contact page link or form beside it
 * \[ ] **No links to competitors** or low-quality external sites. External links only to authoritative sources (e.g., NFPA, CSIA) where they add value.
 
 ### Links into the service page
@@ -397,7 +397,7 @@ FAQ schema rules live in Section 8.
 * \[ ] **Number of internal links is flexible**: no minimum or maximum, as long as each link is relevant and useful
 * \[ ] **No more than one link to the same URL** per section
 * \[ ] **Links open in the same tab**, except external links, which may open in a new tab with `rel="noopener"`
-* \[ ] **Click-to-call links** use the `tel:` format with (682) 354-6644
+* \[ ] **Click-to-call links** use the `tel:` format with (877) 203-8193
 
 ### Link health
 
@@ -474,9 +474,9 @@ FAQ schema rules live in Section 8.
 
 ### CTA rule
 
-* \[ ] **One CTA type sitewide**: "Call (682) 354-6644." No forms, no Contact page link, no email or chat CTAs on service pages.
+* \[ ] **One CTA type sitewide**: "Call (877) 203-8193." No forms, no Contact page link, no email or chat CTAs on service pages.
 * \[ ] **No `LeadForm` on service pages**, and no Netlify Forms or honeypot needed
-* \[ ] **Phone number is (682) 354-6644 everywhere**, with no trace of (877) 203-8193
+* \[ ] **Phone number is (877) 203-8193 everywhere**, with no trace of (877) 203-8193
 * \[ ] **No free offer wording** in any CTA ("Free Quote," "Free Estimate")
 
 ### Placement
@@ -490,11 +490,11 @@ FAQ schema rules live in Section 8.
 
 ### Click-to-call implementation
 
-* \[ ] **`tel:` link format**: `tel:+16823546644`, with the visible text "(682) 354-6644"
+* \[ ] **`tel:` link format**: `tel:+18772038193`, with the visible text "(877) 203-8193"
 * \[ ] **Number is real text**, not an image
 * \[ ] **Button styled per the design direction**: solid red `#D72828`, bold white text, minimal corner rounding
 * \[ ] **Tap target at least 48×48 px**
-* \[ ] **Descriptive link label** ("Call (682) 354-6644"), not "Click here"
+* \[ ] **Descriptive link label** ("Call (877) 203-8193"), not "Click here"
 * \[ ] **Same wording and style** across header, hero, mid-page, and closing CTAs
 
 ### CTA copy
@@ -506,7 +506,7 @@ FAQ schema rules live in Section 8.
 ### Tracking
 
 * \[ ] **Call clicks tracked** as an event (e.g., GA4 or a call-tracking tool) per page and per placement
-* \[ ] **Tracking number caution**: a call-tracking number must not replace (682) 354-6644 in text or schema
+* \[ ] **Tracking number caution**: a call-tracking number must not replace (877) 203-8193 in text or schema
 * \[ ] **Call volume reviewed** monthly by page
 
 ### Contact page (`/contact-us/`)
@@ -523,7 +523,7 @@ FAQ schema rules live in Section 8.
 * \[ ] **Primary keyword, secondary keywords, and intent** are recorded for the page
 * \[ ] **USP and UVP** are defined, and the UVP appears in the H1 or hero subheading
 * \[ ] **Title tag** is ALL CAPS, fits under 580px in a SERP preview, and is unique
-* \[ ] **Meta description** fits under 920px desktop and 680px mobile, and ends with "Call (682) 354-6644"
+* \[ ] **Meta description** fits under 920px desktop and 680px mobile, and ends with "Call (877) 203-8193"
 * \[ ] **Exactly one H1**, and the heading order has no skipped levels
 * \[ ] **URL matches the live inventory** exactly, with the trailing slash, and the canonical is self-referencing
 
@@ -557,7 +557,7 @@ FAQ schema rules live in Section 8.
 
 * \[ ] **Internal links** use exact live URLs, with descriptive anchors and no broken links
 * \[ ] **Page is linked** from the homepage ServiceGrid, the nav dropdown, the footer, and related pages
-* \[ ] **Call CTA is the only CTA**: header, hero, mid-page, closing, and sticky mobile button all use `tel:+16823546644`
+* \[ ] **Call CTA is the only CTA**: header, hero, mid-page, closing, and sticky mobile button all use `tel:+18772038193`
 * \[ ] **No trace of (877) 203-8193**, no form, and no Contact page link in the CTA area
 * \[ ] **PageSpeed Insights (mobile)** meets LCP, CLS, and INP targets
 * \[ ] **Mobile check** covers tap targets, text size, tables, and the dropdown

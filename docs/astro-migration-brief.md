@@ -25,7 +25,7 @@ Content and meta for each page will be supplied one page at a time, not all at o
 - Hosting: unknown current host (to confirm before DNS cutover)
 - Domain: fortworthchimneysweep.com
 - Business: Chimney Sweep Pro, 804 Mustang Dr, Saginaw, TX 76179
-- Canonical phone number: **(682) 354-6644** — use this everywhere (header CTA, hero, footer, click-to-call links, schema). The old site also shows (877) 203-8193 in places; that's being retired, don't carry it over.
+- Canonical phone number: **(877) 203-8193** — use this everywhere (header CTA, hero, footer, click-to-call links, schema). The old site also shows (877) 203-8193 in places; that's being retired, don't carry it over.
 
 ## Target stack
 - Astro (latest, static output — no SSR needed, this is a marketing/local-service site)
@@ -140,7 +140,7 @@ blog: {
 3. **Canonical tags** — self-referencing canonical on every page.
 4. **Structured data (JSON-LD)** — check whether the current NitroPack/theme setup outputs LocalBusiness, FAQPage, or Review schema (view page source or check Google's Rich Results Test on the live URL) and rebuild equivalents fresh, matching the new content.
    - Build as small Astro components in `src/components/schema/`: `LocalBusinessSchema.astro`, `ServiceSchema.astro`, `FAQSchema.astro`, `BreadcrumbSchema.astro` — each renders a `<script type="application/ld+json" set:html={JSON.stringify(data)} />`
-   - `LocalBusinessSchema` goes once in the main layout (name, address, phone `(682) 354-6644`, hours, geo, service area)
+   - `LocalBusinessSchema` goes once in the main layout (name, address, phone `(877) 203-8193`, hours, geo, service area)
    - `ServiceSchema` on every service page, `Article` schema on every blog post — pull fields straight from that page's content-collection frontmatter, don't hand-type separately from the visible copy
    - `FAQSchema` only on pages with a visible FAQ accordion, generated from the same FAQ array that renders the accordion
    - `BreadcrumbSchema` auto-generated from the URL path on every page
@@ -183,7 +183,7 @@ Site is getting all-new images, but some current image URLs are indexed in Googl
 - [ ] Mobile responsive check (nav, forms, phone click-to-call links)
 - [ ] Sitemap.xml and robots.txt are present and correct
 - [ ] Structured data validates in Google's Rich Results Test
-- [ ] Phone number is (682) 354-6644 everywhere — header, hero, footer, click-to-call links, and any schema — with no trace of the old (877) 203-8193 number
+- [ ] Phone number is (877) 203-8193 everywhere — header, hero, footer, click-to-call links, and any schema — with no trace of the old (877) 203-8193 number
 - [ ] Indexed image URLs (from the Image migration section) 301-redirect correctly to their new replacements
 
 ## Explicitly out of scope for this task

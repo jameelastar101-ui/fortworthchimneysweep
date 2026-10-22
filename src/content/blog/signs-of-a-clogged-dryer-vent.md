@@ -12,7 +12,7 @@ hub: dryer-vent-cleaning-fort-worth-tx
 
 The signs of a clogged dryer vent are long dry times, clothes that stay damp, a burning smell, and lint where it does not belong. Fort Worth homeowners see the same signs, and each one points to restricted airflow in the vent line.
 
-[Chimney Sweep Pro clears blocked dryer vents](/dryer-vent-cleaning-fort-worth-tx/) for Fort Worth homeowners from our base in Saginaw, TX. If you notice more than one sign, call [(682) 354-6644](tel:+16823546644).
+[Chimney Sweep Pro clears blocked dryer vents](/dryer-vent-cleaning-fort-worth-tx/) for Fort Worth homeowners from our base in Saginaw, TX. If you notice more than one sign, call [(877) 203-8193](tel:+18772038193).
 
 <img
   src="/images/blog/signs-of-a-clogged-dryer-vent/signs-of-a-clogged-dryer-vent-summary-infographic.webp"
@@ -141,7 +141,7 @@ You can test dryer vent airflow with no tools. Each step below is one action, wi
 
 If any step fails, treat the vent as blocked.
 
-Weak airflow at the hood? Chimney Sweep Pro can find and clear the blockage. Call [(682) 354-6644](tel:+16823546644).
+Weak airflow at the hood? Chimney Sweep Pro can find and clear the blockage. Call [(877) 203-8193](tel:+18772038193).
 
 ## Why dryer vents clog
 
@@ -218,4 +218,4 @@ Call a professional when more than one sign shows up, when airflow stays weak af
 
 Chimney Sweep Pro provides [dryer vent cleaning in Fort Worth](/dryer-vent-cleaning-fort-worth-tx/) for homeowners in Fort Worth and nearby areas.
 
-If your dryer shows any of the signs of a clogged dryer vent above, call [(682) 354-6644](tel:+16823546644) to have the vent found and cleared. For smoke or flames, follow the 911 steps in the burning smell section first.
+If your dryer shows any of the signs of a clogged dryer vent above, call [(877) 203-8193](tel:+18772038193) to have the vent found and cleared. For smoke or flames, follow the 911 steps in the burning smell section first.

@@ -22,7 +22,7 @@ A water stain on the ceiling next to a chimney usually means water is entering a
 
 Start with the safety steps below. Then use the stain's clues to narrow down the source.
 
-Want the entry point found? Chimney Sweep Pro can help. Call [(682) 354-6644](tel:+16823546644).
+Want the entry point found? Chimney Sweep Pro can help. Call [(877) 203-8193](tel:+18772038193).
 
 <img
   src="/images/blog/water-stains-on-ceiling-next-to-chimney/water-stains-on-ceiling-next-to-chimney-summary-infographic.webp"
@@ -214,7 +214,7 @@ Chimney Sweep Pro is CSIA certified. See [chimney inspection](https://fortworthc
 
 **Schedule a visit:** an old, dry stain that hasn't changed.
 
-See [water dripping from chimney](https://fortworthchimneysweep.com/water-dripping-from-chimney/) for the full urgency levels. Active water or a growing stain? Call [(682) 354-6644](tel:+16823546644).
+See [water dripping from chimney](https://fortworthchimneysweep.com/water-dripping-from-chimney/) for the full urgency levels. Active water or a growing stain? Call [(877) 203-8193](tel:+18772038193).
 
 ### Insurance and Documentation
 
@@ -244,4 +244,4 @@ Call if the stain grows, appears after rain, or comes with a soft ceiling, a mus
 
 A [chimney inspection](https://fortworthchimneysweep.com/chimney-inspection-fort-worth-tx/) finds the entry point. [Chimney leak repair](https://fortworthchimneysweep.com/chimney-leak-repair-fort-worth-tx/) fixes it.
 
-Ready to find the source? Call [(682) 354-6644](tel:+16823546644).
+Ready to find the source? Call [(877) 203-8193](tel:+18772038193).

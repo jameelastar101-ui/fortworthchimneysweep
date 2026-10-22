@@ -2,9 +2,9 @@
 title: "Chimney sweep services in Fort Worth, TX"
 titleTag: "CHIMNEY SWEEP SERVICES FORT WORTH, TX"
 slug: "chimney-sweep-services"
-metaDescription: "Chimney sweep services in Fort Worth, TX: sweep, inspection, repair, relining, caps, animal removal, and dryer vents. Call (682) 354-6644"
+metaDescription: "Chimney sweep services in Fort Worth, TX: sweep, inspection, repair, relining, caps, animal removal, and dryer vents. Call (877) 203-8193"
 ogImage: "/images/chimney-sweep-services/chimney-sweep-services-fort-worth-hero.webp"
-phone: "(682) 354-6644"
+phone: "(877) 203-8193"
 cluster: "sweep-inspection"
 role: "hub"
 hubAnchor: "chimney sweep services"
@@ -165,7 +165,7 @@ local:
   paragraphs:
     - "Century-old masonry chimneys in historic neighborhoods like Fairmount lose mortar and brick over many seasons. Newer homes are different. Census data puts the typical Keller home's construction year at 1999, which makes its chimney about 27 years old. See [chimney sweep in Keller](/chimney-sweep-keller-tx/)."
   serviceAreaLine: "Chimney Sweep Pro is based at 804 Mustang Dr, Saginaw, TX 76179, and serves Fort Worth, Keller, Mansfield, Southlake, Arlington, Benbrook, North Richland Hills, Burleson, Haltom City, Saginaw, and Weatherford."
-  nap: "Chimney Sweep Pro, 804 Mustang Dr, Saginaw, TX 76179, (682) 354-6644"
+  nap: "Chimney Sweep Pro, 804 Mustang Dr, Saginaw, TX 76179, (877) 203-8193"
 
 faqHeading: "Chimney Service FAQs for Fort Worth Homeowners"
 faqs:
@@ -178,7 +178,7 @@ faqs:
   - question: "How do I know which chimney service I need?"
     answer: "Match what you notice to the service. A campfire smell or soot points to a sweep. Water stains point to leak repair, and cracked mortar or brick points to repair. Scratching or chirping points to animal removal. If you cannot tell, an inspection checks the whole system."
   - question: "How much do chimney services cost in Fort Worth?"
-    answer: "Prices run from {{price-range}}. A dryer vent cleaning is {{price:dryer-overall}}, a chimney sweep is {{price:sweep-standard}}, an inspection is {{price:inspection-standalone-overall}}, and a repair is {{price:repair-overall}}. Relining is {{price:relining}}. The technician gives the final price in writing before work starts. [Call (682) 354-6644](tel:+16823546644)."
+    answer: "Prices run from {{price-range}}. A dryer vent cleaning is {{price:dryer-overall}}, a chimney sweep is {{price:sweep-standard}}, an inspection is {{price:inspection-standalone-overall}}, and a repair is {{price:repair-overall}}. Relining is {{price:relining}}. The technician gives the final price in writing before work starts. [Call (877) 203-8193](tel:+18772038193)."
   - question: "Which Fort Worth-area cities do you serve?"
     answer: "We serve Fort Worth, Keller, Mansfield, Southlake, Arlington, Benbrook, North Richland Hills, Burleson, Haltom City, Saginaw, and Weatherford. The services and pricing tiers are the same in each city, and Keller has its own page. Ask when you call if your city is not listed."
   - question: "What is the difference between a chimney sweep, an inspection, and a repair?"
@@ -186,7 +186,7 @@ faqs:
   - question: "How often does a chimney need service?"
     answer: "Schedule an inspection once a year, and plan on a sweep once soot or creosote builds up to about 1/8 inch, or sooner if you see any glazed creosote. Cracks, water stains, or smoke in the room call for an inspection or repair sooner. Dryer vents need cleaning once a year."
   - question: "What should I do if I see signs of a chimney fire?"
-    answer: "Get everyone out of the house and call 911 first. Signs include smoke inside the house, flames in the flue, or a carbon monoxide alarm. Do not go back in to check. [Call (682) 354-6644](tel:+16823546644) afterward for an inspection before you use the fireplace again."
+    answer: "Get everyone out of the house and call 911 first. Signs include smoke inside the house, flames in the flue, or a carbon monoxide alarm. Do not go back in to check. [Call (877) 203-8193](tel:+18772038193) afterward for an inspection before you use the fireplace again."
   - question: "Which chimney problems are the most urgent?"
     answer: "Smoke backing into the room, a leaning chimney, loose bricks, a dead-animal smell, and active dripping are the most urgent. Stop using the fireplace and call. Cracks, crumbling mortar, and a shiny coating on the flue can wait a short time. A routine sweep with no symptoms can wait for the season."
 
